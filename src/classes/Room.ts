@@ -1,8 +1,8 @@
-import type { Direction, RoomProps } from "../types";
+import type { Color, Direction, RoomProps } from "../types";
 
 class Room {
 	name: string;
-	color: string[];
+	color: Color[];
 	filename: string;
 	doors: Direction[];
 	direction: Direction;
