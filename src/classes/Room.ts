@@ -7,12 +7,12 @@ class Room {
 	doors: Direction[];
 	direction: Direction;
 
-	constructor(props: RoomProps) {
-		this.name = props.name;
-		this.color = props.color;
-		this.filename = props.filename;
-		this.doors = props.doors;
-		this.direction = props.direction || 'n';
+	constructor(props?: RoomProps) {
+		this.name = props?.name || '';
+		this.color = props?.color || ['none'];
+		this.filename = props?.filename || '';
+		this.doors = props?.doors || [];
+		this.direction = props?.direction || 'n';
 
 		// if initially not north, rotate the doors
 		if (this.direction !== 'n') {
@@ -23,6 +23,7 @@ class Room {
 	}
 
 	getImgName() {
+		if (!this.filename) return '';
 		if (this.name === 'Antechamber') return 'antechamber.png';
 		if (this.name === 'Entrance Hall') return 'entrancehall-4.png';
 		if (this.name === 'Room 46') return 'room46-n.png';

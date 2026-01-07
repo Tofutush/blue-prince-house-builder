@@ -1,15 +1,29 @@
 <script lang="ts">
-	let house = [];
+	import Room from './classes/Room';
+	const roomImgs = import.meta.glob('./assets/*.png');
+
+	let house: Room[][] = [];
 	for (let z = 0; z < 9; z++) {
-		house[z] = [{}, {}, {}, {}, {}];
+		house[z] = [new Room(), new Room(), new Room(), new Room(), new Room()];
 	}
+	house[0][2] = new Room({
+		name: 'Antechamber',
+		color: ['none'],
+		filename: 'antechamber',
+		doors: ['e', 'n', 's', 'w'],
+		direction: 'n',
+	});
 </script>
 
 <main>
 	<section id="house">
 		{#each house as rank}
 			{#each rank as room}
-				<div class="room"></div>
+				<div class="room">
+					{#if room.name}
+						<img alt={room.name} src="/assets/rooms/{room.getImgName()}" />
+					{/if}
+				</div>
 			{/each}
 		{/each}
 	</section>
