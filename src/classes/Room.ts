@@ -22,6 +22,17 @@ class Room {
 		}
 	}
 
+	getImgName() {
+		if (this.name === 'Antechamber') return 'antechamber.png';
+		if (this.name === 'Entrance Hall') return 'entrancehall-4.png';
+		if (this.name === 'Room 46') return 'room46-n.png';
+		if (this.doors.length === 2 && this.doors.includes('n') && this.doors.includes('s'))
+			return this.filename + '-ns.png';
+		if (this.doors.length === 2 && this.doors.includes('e') && this.doors.includes('w'))
+			return this.filename + '-ew.png';
+		return `${this.filename}-${this.direction}.png`;
+	}
+
 	rotateDoors(times: number) {
 		const order = ['n', 'e', 's', 'w'] as Direction[];
 		for (let z = 0; z < this.doors.length; z++)
