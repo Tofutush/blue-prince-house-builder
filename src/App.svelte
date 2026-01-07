@@ -13,7 +13,12 @@
 		color: ['none'],
 		filename: 'antechamber',
 		doors: ['e', 'n', 's', 'w'],
-		direction: 'n',
+	});
+	house[8][2] = new Room({
+		name: 'Entrance Hall',
+		color: ['blue'],
+		filename: 'entrancehall',
+		doors: ['e', 'n', 'w'],
 	});
 </script>
 
