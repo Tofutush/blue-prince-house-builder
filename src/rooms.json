@@ -1,0 +1,22 @@
+[
+  {
+    "name": "The Foundation",
+    "color": "blue",
+    "filename": "thefoundation",
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Entrance Hall",
+    "color": "blue",
+    "filename": "entrancehall",
+    "doors": [
+      "e",
+      "w",
+      "n"
+    ]
+  }
+]
