@@ -1,8 +1,10 @@
 [
   {
     "name": "The Foundation",
-    "color": "blue",
     "filename": "thefoundation",
+    "color": [
+      "blue"
+    ],
     "doors": [
       "s",
       "w",
@@ -11,8 +13,10 @@
   },
   {
     "name": "Entrance Hall",
-    "color": "blue",
     "filename": "entrancehall",
+    "color": [
+      "blue"
+    ],
     "doors": [
       "e",
       "w",
