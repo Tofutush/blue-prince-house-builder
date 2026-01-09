@@ -7,22 +7,16 @@
 
 	function getDraftables(room: PlacedRoom) {
 		let realDoors = rotateDoors(room.room, room.direction);
-		for (let z = 0; z < realDoors.length; z++) {
+		return realDoors.filter((d) => {
 			let coords: number[] = [];
-			if (realDoors[z] === 'e') coords = [room.coords[0], room.coords[1] + 1];
-			else if (realDoors[z] === 'w') coords = [room.coords[0], room.coords[1] - 1];
-			else if (realDoors[z] === 'n') coords = [room.coords[0] - 1, room.coords[1]];
-			else if (realDoors[z] === 's') coords = [room.coords[0] + 1, room.coords[1]];
-			if (coords[0] < 0 || coords[0] > 8 || coords[1] < 0 || coords[1] > 4) {
-				realDoors.splice(z, 1);
-				continue;
-			}
-			if (house[coords[0]][coords[1]] != null) {
-				realDoors.splice(z, 1);
-				continue;
-			}
-		}
-		return realDoors;
+			if (d === 'e') coords = [room.coords[0], room.coords[1] + 1];
+			else if (d === 'w') coords = [room.coords[0], room.coords[1] - 1];
+			else if (d === 'n') coords = [room.coords[0] - 1, room.coords[1]];
+			else if (d === 's') coords = [room.coords[0] + 1, room.coords[1]];
+			if (coords[0] < 0 || coords[0] > 8 || coords[1] < 0 || coords[1] > 4) return false;
+			if (house[coords[0]][coords[1]] != null) return false;
+			return true;
+		});
 	}
 </script>
 

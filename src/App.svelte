@@ -29,7 +29,7 @@
 		draft.direction = direction;
 	}
 	function draftRoom(room: RoomData) {
-		placeRoom({ room: room, direction: draft.direction as Direction, coords: draft.coords });
+		placeRoom({ room: room, direction: draft.direction as Direction, coords: [draft.coords[0], draft.coords[1]] });
 		draft = {
 			active: false,
 			coords: [0, 0],

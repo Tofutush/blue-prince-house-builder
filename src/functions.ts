@@ -31,14 +31,14 @@ export function getRoom(name: string) {
 
 export function rotateDoors(room: RoomData, direction: Direction) {
 	let directions: Direction[] = ['n', 'e', 's', 'w'];
-	let newRooms: Direction[] = [];
+	let newDoors: Direction[] = [];
 	let index: number = 0;
 	if (direction === 'n') index = 0;
 	else if (direction === 'e') index = 1;
 	else if (direction === 's') index = 2;
 	else if (direction === 'w') index = 3;
 	for (let z = 0; z < room.doors.length; z++) {
-		newRooms.push(directions[(directions.indexOf(room.doors[z]) + index) % 4])
+		newDoors.push(directions[(directions.indexOf(room.doors[z]) + index) % 4])
 	}
-	return newRooms;
+	return newDoors;
 }
