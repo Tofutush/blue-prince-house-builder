@@ -12,7 +12,7 @@
 		<summary>Rooms 1 - 12</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(0, 12) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} />
+				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
 			{/each}
 		</div>
 	</details>
