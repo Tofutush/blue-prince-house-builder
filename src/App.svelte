@@ -3,14 +3,24 @@
 	import House from './components/House.svelte';
 	import OuterRoom from './components/OuterRoom.svelte';
 	import { getRoom } from './functions';
+	import type { PlacedRoom } from './types';
 
 	let outerRoom = getRoom('The Foundation');
+	let house: PlacedRoom[][] = $state(Array.from({ length: 9 }, () => Array(5).fill(null)));
+
+	function placeRoom(room: PlacedRoom) {
+		house[room.coords[0]][room.coords[1]] = room;
+	}
+
+	placeRoom({ room: getRoom('Entrance Hall'), coords: [8, 2], direction: 'n' });
+	placeRoom({ room: getRoom('The Foundation'), coords: [7, 2], direction: 'w' });
+	placeRoom({ room: getRoom('The Foundation'), coords: [4, 2], direction: 'e' });
 
 	function draftRoom() {}
 </script>
 
 <main>
-	<House />
+	<House {house} />
 	<OuterRoom />
 	<Directory />
 </main>
