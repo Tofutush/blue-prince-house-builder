@@ -1,5 +1,7 @@
 import type { Direction, RoomData } from "./types";
-import roomList from './rooms.json';
+import roomListJson from './rooms.json';
+
+export const roomList: RoomData[] = roomListJson as RoomData[];
 
 export function getRoomImgName(room: RoomData, direction: Direction) {
 	if (!room.filename) throw new Error('no filename');
@@ -14,10 +16,6 @@ export function getRoomImgName(room: RoomData, direction: Direction) {
 	}
 	// all the others
 	return `${room.filename}-${direction}.png`;
-}
-
-export function getRoomList() {
-	return roomList as RoomData[];
 }
 
 export function getRoom(name: string) {
