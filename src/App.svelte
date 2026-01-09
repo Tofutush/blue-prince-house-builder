@@ -1,4 +1,7 @@
 <script lang="ts">
+	import House from './components/House.svelte';
 </script>
 
-<main></main>
+<main>
+	<House />
+</main>
