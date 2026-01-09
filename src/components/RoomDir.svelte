@@ -6,7 +6,7 @@
 	let { room }: { room: DirRoom } = $props();
 </script>
 
-<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? '' : 'disabled'} onclick={draft.active && room.enabled?} />
 
 <style>
 	img {

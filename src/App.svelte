@@ -5,6 +5,8 @@
 	import { getRoom } from './functions';
 
 	let outerRoom = getRoom('The Foundation');
+
+	function draftRoom() {}
 </script>
 
 <main>
