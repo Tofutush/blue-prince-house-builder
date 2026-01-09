@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getRoom, getRoomImg } from '../functions';
 	import type { PlacedRoom } from '../types';
+	import RoomPlaced from './RoomPlaced.svelte';
 
 	let house: PlacedRoom[][] = Array.from({ length: 9 }, () =>
 		Array(5).fill({
@@ -21,7 +22,7 @@
 		{#each row as room}
 			<div class="room">
 				{#if room.room}
-					<img src={getRoomImg(room.room, room.direction || 'n')} alt={room.room.name} />
+					<RoomPlaced {room} />
 				{/if}
 			</div>
 		{/each}
@@ -43,11 +44,6 @@
 			background-color: #40649c;
 			min-width: 0;
 			min-height: 0;
-
-			& > img {
-				width: 100%;
-				height: 100%;
-			}
 		}
 	}
 </style>
