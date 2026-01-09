@@ -11,7 +11,11 @@
 </script>
 
 <button onclick={selected}>
-	<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? (draft.active ? ' active' : '') : 'disabled'} />
+	{#if draft.active}
+		<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? 'active' : 'disabled'} />
+	{:else}
+		<img src={getRoomImg(room.room, 'n')} alt={room.room.name} />
+	{/if}
 </button>
 
 <style>

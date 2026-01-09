@@ -27,6 +27,8 @@
 		}
 		room.direction = draft.direction;
 		room.enabled = enabled;
+		console.log(room);
+
 		return room;
 	}
 </script>
