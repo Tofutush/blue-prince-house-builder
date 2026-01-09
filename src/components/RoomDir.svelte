@@ -1,19 +1,32 @@
 <script lang="ts">
 	import { draft } from '../draft.svelte';
 	import { getRoomImg } from '../functions';
-	import type { DirRoom } from '../types';
+	import type { DirRoom, RoomData } from '../types';
 
-	let { room }: { room: DirRoom } = $props();
+	let { room, draftDone }: { room: DirRoom; draftDone: (room: RoomData) => void } = $props();
+
+	function selected() {
+		if (!draft.active) return;
+		draftDone(room.room);
+	}
 </script>
 
-<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+<button onclick={selected}>
+	<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? (draft.active ? ' active' : '') : 'disabled'} />
+</button>
 
 <style>
+	button {
+		all: unset;
+	}
 	img {
 		width: 100%;
 		height: 100%;
 		&.disabled {
 			filter: grayscale(1);
+		}
+		&.active {
+			cursor: pointer;
 		}
 	}
 </style>

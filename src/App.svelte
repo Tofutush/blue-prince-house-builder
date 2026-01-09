@@ -2,8 +2,9 @@
 	import Directory from './components/Directory.svelte';
 	import House from './components/House.svelte';
 	import OuterRoom from './components/OuterRoom.svelte';
+	import { draft } from './draft.svelte';
 	import { getRoom } from './functions';
-	import type { PlacedRoom } from './types';
+	import type { Direction, PlacedRoom, RoomData } from './types';
 
 	let outerRoom = getRoom('The Foundation');
 	let house: PlacedRoom[][] = $state(Array.from({ length: 9 }, () => Array(5).fill(null)));
@@ -16,13 +17,20 @@
 	placeRoom({ room: getRoom('The Foundation'), coords: [7, 2], direction: 'w' });
 	placeRoom({ room: getRoom('The Foundation'), coords: [4, 2], direction: 'e' });
 
-	function draftRoom() {}
+	function draftRoom(room: RoomData) {
+		placeRoom({ room: room, direction: draft.direction as Direction, coords: draft.coords });
+		// 		draft ={
+		// 	active: false,
+		// 	coords: [0, 0],
+		// 	direction: null as Direction | null
+		// };
+	}
 </script>
 
 <main>
 	<House {house} />
 	<OuterRoom />
-	<Directory />
+	<Directory draftDone={draftRoom} />
 </main>
 
 <style>
