@@ -5,7 +5,7 @@
 	let { room, draft, draftDone }: { room: DirRoom; draft: draftType; draftDone: (room: RoomData) => void } = $props();
 
 	function selected() {
-		if (!draft.active) return;
+		if (!draft.active || !room.enabled) return;
 		draftDone(room.room);
 	}
 </script>
