@@ -10,11 +10,11 @@
 		}),
 	);
 
-	function placeRoom(coords: number[], room: PlacedRoom) {
-		house[coords[0]][coords[1]] = room;
+	function placeRoom(room: PlacedRoom) {
+		house[room.coords[0]][room.coords[1]] = room;
 	}
 
-	placeRoom([8, 2], { room: getRoom('Entrance Hall'), direction: 'n' });
+	placeRoom({ room: getRoom('Entrance Hall'), coords: [8, 2], direction: 'n' });
 </script>
 
 <section id="house">

@@ -8,7 +8,8 @@ export type RoomData = {
 
 export type PlacedRoom = {
 	room: RoomData,
-	direction: Direction
+	direction: Direction,
+	coords: number[]
 }
 
 export type RoomDir = {

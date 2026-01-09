@@ -1,14 +1,32 @@
 <script lang="ts">
-	import { getRoomImg } from '../functions';
-	import type { PlacedRoom } from '../types';
+	import { draft } from '../draft.svelte';
+	import { getRoomImg, startDraft } from '../functions';
+	import type { Direction, PlacedRoom } from '../types';
 
 	let { room }: { room: PlacedRoom } = $props();
+
+	function initiateDraft(direction: Direction) {
+		startDraft(getDraftCoords(direction), direction);
+		console.log($state.snapshot(draft));
+	}
+
+	function getDraftCoords(direction: Direction) {
+		let coords: number[] = [];
+		if (direction === 'e') coords = [room.coords[0], room.coords[1] + 1];
+		else if (direction === 'w') coords = [room.coords[0], room.coords[1] - 1];
+		else if (direction === 'n') coords = [room.coords[0] - 1, room.coords[1]];
+		else if (direction === 's') coords = [room.coords[0] + 1, room.coords[1]];
+		if (coords[0] < 0 || coords[0] > 8 || coords[1] < 0 || coords[1] > 4) {
+			throw new Error(`drafting target coords (${coords[0]}, ${coords[1]}) out of bounds you dumbfuck`);
+		}
+		return coords;
+	}
 </script>
 
 <div class="placed-room">
 	<img src={getRoomImg(room.room, room.direction || 'n')} alt={room.room.name} />
 	{#each room.room.doors as door}
-		<div class="arrow arrow-{door}"></div>
+		<button aria-label="draft {door}" class="arrow arrow-{door}" onclick={() => initiateDraft(door)}></button>
 	{/each}
 </div>
 
@@ -21,6 +39,7 @@
 		height: 100%;
 	}
 	.arrow {
+		all: unset;
 		position: absolute;
 		background-color: red;
 		cursor: pointer;
