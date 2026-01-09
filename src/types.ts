@@ -1,18 +1,18 @@
 export type Direction = 'n' | 's' | 'w' | 'e';
 
 export type RoomData = {
-    name: string,
-    filename: string,
-    doors: Direction[]
+	name: string,
+	filename: string,
+	doors: Direction[]
 }
 
 export type PlacedRoom = {
-    room: RoomData,
-    direction: Direction
+	room: RoomData,
+	direction: Direction
 }
 
 export type RoomDir = {
-    room: RoomData,
-    direction: Direction,
-    enabled: boolean
+	room: RoomData,
+	direction: Direction,
+	enabled: boolean
 }

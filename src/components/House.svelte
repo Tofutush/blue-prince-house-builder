@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getRoomImgName, getRoomList } from '../functions';
+	import { getRoom, getRoomImgName } from '../functions';
 	import roomImgs from '../images';
 	import type { PlacedRoom } from '../types';
 
@@ -14,8 +14,7 @@
 		house[coords[0]][coords[1]] = room;
 	}
 
-	let roomList = getRoomList();
-	placeRoom([8, 2], { room: roomList[1], direction: 'n' });
+	placeRoom([8, 2], { room: getRoom('Entrance Hall'), direction: 'n' });
 </script>
 
 <section id="house">

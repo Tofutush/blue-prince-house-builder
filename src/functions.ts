@@ -1,7 +1,7 @@
 import type { Direction, RoomData } from "./types";
 import roomList from './rooms.json';
 
-function getRoomImgName(room: RoomData, direction: Direction) {
+export function getRoomImgName(room: RoomData, direction: Direction) {
 	if (!room.filename) throw new Error('no filename');
 	// special rooms
 	if (room.name === 'Antechamber') return 'antechamber.png';
@@ -16,8 +16,12 @@ function getRoomImgName(room: RoomData, direction: Direction) {
 	return `${room.filename}-${direction}.png`;
 }
 
-function getRoomList() {
+export function getRoomList() {
 	return roomList as RoomData[];
 }
 
-export { getRoomImgName, getRoomList };
+export function getRoom(name: string) {
+	let room = (roomList as RoomData[]).find(r => r.name === name)
+	if (!room) throw new Error(`room called "${name}" does not exist`);
+	return room;
+}
