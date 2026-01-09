@@ -1,5 +1,5 @@
-import type { Direction, RoomData } from "./types";
 import roomListJson from './rooms.json';
+import type { Direction, RoomData } from "./types";
 
 let roomImgs = Object.fromEntries(Object.entries(import.meta.glob('./assets/rooms/*.png', {
 	eager: true,

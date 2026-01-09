@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { RoomData } from '../types';
 	import { getRoomImg } from '../functions';
+	import type { RoomData } from '../types';
 
 	let { room }: { room?: RoomData } = $props();
 </script>

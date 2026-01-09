@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getRoom, getRoomImg } from '../functions';
+	import { getRoom } from '../functions';
 	import type { PlacedRoom } from '../types';
 	import RoomPlaced from './RoomPlaced.svelte';
 
