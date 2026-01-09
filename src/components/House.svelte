@@ -3,12 +3,7 @@
 	import type { PlacedRoom } from '../types';
 	import RoomPlaced from './RoomPlaced.svelte';
 
-	let house: PlacedRoom[][] = Array.from({ length: 9 }, () =>
-		Array(5).fill({
-			room: null,
-			direction: null,
-		}),
-	);
+	let house: PlacedRoom[][] = Array.from({ length: 9 }, () => Array(5).fill(null));
 
 	function placeRoom(room: PlacedRoom) {
 		house[room.coords[0]][room.coords[1]] = room;
@@ -22,7 +17,7 @@
 	{#each house as row}
 		{#each row as room}
 			<div class="room">
-				{#if room.room}
+				{#if room?.room}
 					<RoomPlaced {room} />
 				{/if}
 			</div>
