@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { draft } from '../draft.svelte';
 	import { roomList, rotateDoors } from '../functions';
-	import type { DirRoom, RoomData } from '../types';
+	import type { DirRoom, draftType, RoomData } from '../types';
 	import RoomDir from './RoomDir.svelte';
 
-	let { draftDone }: { draftDone: (room: RoomData) => void } = $props();
+	let { draftDone, draft }: { draft: draftType; draftDone: (room: RoomData) => void } = $props();
 
 	let directory: DirRoom[] = roomList.map((r) => {
 		return { room: r, direction: 'n', enabled: true };
@@ -37,7 +36,7 @@
 		<summary>Rooms 1 - 12</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(0, 12) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -45,7 +44,7 @@
 		<summary>Rooms 13 - 24</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(12, 24) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -53,7 +52,7 @@
 		<summary>Rooms 25 - 36</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(24, 36) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -61,7 +60,7 @@
 		<summary>Rooms 37 - 46</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(36, 46) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -69,7 +68,7 @@
 		<summary>Bedrooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(46, 54) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -77,7 +76,7 @@
 		<summary>Hallways</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(54, 62) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -85,7 +84,7 @@
 		<summary>Green Rooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(62, 70) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -93,7 +92,7 @@
 		<summary>Shops</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(70, 78) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -101,7 +100,7 @@
 		<summary>Red Rooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(78, 86) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -109,7 +108,7 @@
 		<summary>Studio Additions</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(86, 94) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -117,7 +116,7 @@
 		<summary>Found Floorplans</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(94, 102) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -125,7 +124,7 @@
 		<summary>Outer Rooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(102, 110) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>
@@ -134,7 +133,7 @@
 		<summary>Upgraded Rooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(0, 12) as room}
-				<RoomDir {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
+				<RoomDir {draft} {draftDone} room={draft.active ? getDraftingRoom(room) : room} />
 			{/each}
 		</div>
 	</details>

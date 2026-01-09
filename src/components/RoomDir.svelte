@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { draft } from '../draft.svelte';
 	import { getRoomImg } from '../functions';
-	import type { DirRoom, RoomData } from '../types';
+	import type { DirRoom, draftType, RoomData } from '../types';
 
-	let { room, draftDone }: { room: DirRoom; draftDone: (room: RoomData) => void } = $props();
+	let { room, draft, draftDone }: { room: DirRoom; draft: draftType; draftDone: (room: RoomData) => void } = $props();
 
 	function selected() {
 		if (!draft.active) return;

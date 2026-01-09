@@ -1,14 +1,8 @@
 <script lang="ts">
-	import { draft } from '../draft.svelte';
-	import { getRoomImg, rotateDoors, startDraft } from '../functions';
-	import type { Direction, PlacedRoom } from '../types';
+	import { getRoomImg } from '../functions';
+	import type { Direction, draftType, PlacedRoom } from '../types';
 
-	let { room, draftables }: { room: PlacedRoom; draftables: Direction[] } = $props();
-
-	function initiateDraft(direction: Direction) {
-		startDraft(getDraftCoords(direction), direction);
-		console.log($state.snapshot(draft));
-	}
+	let { room, draftables, draft, draftStart }: { room: PlacedRoom; draftables: Direction[]; draft: draftType; draftStart: (coords: number[], direction: Direction) => void } = $props();
 
 	function getDraftCoords(direction: Direction) {
 		let coords: number[] = [];
@@ -25,9 +19,11 @@
 
 <div class="placed-room">
 	<img src={getRoomImg(room.room, room.direction || 'n')} alt={room.room.name} />
-	{#each draftables as door}
-		<button aria-label="draft {door}" class="arrow arrow-{door}" onclick={() => initiateDraft(door)}></button>
-	{/each}
+	{#if !draft.active}
+		{#each draftables as door}
+			<button aria-label="draft {door}" class="arrow arrow-{door}" onclick={() => draftStart(getDraftCoords(door), door)}></button>
+		{/each}
+	{/if}
 </div>
 
 <style>

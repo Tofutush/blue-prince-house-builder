@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { getRoom, rotateDoors } from '../functions';
-	import type { PlacedRoom } from '../types';
+	import { rotateDoors } from '../functions';
+	import type { Direction, draftType, PlacedRoom } from '../types';
 	import RoomPlaced from './RoomPlaced.svelte';
 
-	let { house }: { house: PlacedRoom[][] } = $props();
+	let { house, draft, draftStart }: { house: PlacedRoom[][]; draft: draftType; draftStart: (coords: number[], direction: Direction) => void } = $props();
 
 	function getDraftables(room: PlacedRoom) {
 		let realDoors = rotateDoors(room.room, room.direction);
@@ -31,7 +31,7 @@
 		{#each row as room}
 			<div class="room">
 				{#if room?.room}
-					<RoomPlaced {room} draftables={getDraftables(room)} />
+					<RoomPlaced {draftStart} {draft} {room} draftables={getDraftables(room)} />
 				{/if}
 			</div>
 		{/each}

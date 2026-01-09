@@ -1,4 +1,3 @@
-import { draft } from './draft.svelte';
 import roomListJson from './rooms.json';
 import type { Direction, RoomData } from "./types";
 
@@ -28,13 +27,6 @@ export function getRoom(name: string) {
 	let room = (roomList as RoomData[]).find(r => r.name === name)
 	if (!room) throw new Error(`room called "${name}" does not exist`);
 	return room;
-}
-
-export function startDraft(coords: number[], direction: Direction) {
-	if (draft.active) throw new Error('drafting in progress, how could you start another you dumbfuck!');
-	draft.active = true;
-	draft.coords = coords;
-	draft.direction = direction;
 }
 
 export function rotateDoors(room: RoomData, direction: Direction) {

@@ -17,3 +17,9 @@ export type DirRoom = {
 	direction: Direction,
 	enabled: boolean
 }
+
+export type draftType = {
+	active: boolean,
+	coords: number[],
+	direction: Direction | null
+}
