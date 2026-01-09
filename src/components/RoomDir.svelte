@@ -6,11 +6,14 @@
 	let { room }: { room: DirRoom } = $props();
 </script>
 
-<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={draft.active ? '' : 'disabled'} />
+<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
 
 <style>
 	img {
 		width: 100%;
 		height: 100%;
+		&.disabled {
+			filter: grayscale(1);
+		}
 	}
 </style>
