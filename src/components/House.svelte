@@ -50,10 +50,9 @@
 	#house {
 		display: grid;
 		grid-template: repeat(9, 1fr) / repeat(5, 1fr);
-		gap: 4px;
 		background-color: #617694;
 		width: fit-content;
-		padding: 4px;
+		padding: 2px;
 		margin: 1em;
 
 		& > .room {
@@ -61,6 +60,7 @@
 			background-color: #40649c;
 			min-width: 0;
 			min-height: 0;
+			box-shadow: inset 0 0 0 2px #617694;
 		}
 	}
 </style>
