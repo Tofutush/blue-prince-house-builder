@@ -27,3 +27,27 @@
 		{/each}
 	{/each}
 </section>
+
+<style>
+	#house {
+		display: grid;
+		grid-template: repeat(9, 1fr) / repeat(5, 1fr);
+		gap: 4px;
+		background-color: #617694;
+		width: fit-content;
+		padding: 4px;
+		margin: 1em;
+
+		& > .room {
+			aspect-ratio: 1;
+			background-color: #40649c;
+			min-width: 0;
+			min-height: 0;
+
+			& > img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+</style>

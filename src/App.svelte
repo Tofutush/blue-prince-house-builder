@@ -12,3 +12,10 @@
 	<OuterRoom />
 	<Directory />
 </main>
+
+<style>
+	main {
+		display: flex;
+		align-items: stretch;
+	}
+</style>

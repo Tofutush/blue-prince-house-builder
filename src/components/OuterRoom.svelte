@@ -13,3 +13,19 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	#outer-room {
+		align-self: end;
+		width: 8em;
+		margin: 1em 0;
+
+		& div,
+		img {
+			display: block;
+			width: 8em;
+			height: 8em;
+			background-color: #0005;
+		}
+	}
+</style>
