@@ -10,8 +10,12 @@
 		}),
 	);
 
+	function placeRoom(coords: number[], room: PlacedRoom) {
+		house[coords[0]][coords[1]] = room;
+	}
+
 	let roomList = getRoomList();
-	house[8][2] = { room: roomList[1], direction: 'n' };
+	placeRoom([8, 2], { room: roomList[1], direction: 'n' });
 </script>
 
 <section id="house">
