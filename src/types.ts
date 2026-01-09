@@ -12,7 +12,7 @@ export type PlacedRoom = {
 	coords: number[]
 }
 
-export type RoomDir = {
+export type DirRoom = {
 	room: RoomData,
 	direction: Direction,
 	enabled: boolean

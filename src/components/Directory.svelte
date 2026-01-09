@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { getRoomImg, roomList } from '../functions';
-	import type { RoomDir } from '../types';
+	import { roomList } from '../functions';
+	import type { DirRoom } from '../types';
+	import RoomDir from './RoomDir.svelte';
 
-	let directory: RoomDir[] = roomList.map((r) => {
+	let directory: DirRoom[] = roomList.map((r) => {
 		return { room: r, direction: 'n', enabled: true };
 	});
 </script>
@@ -12,7 +13,7 @@
 		<summary>Rooms 1 - 12</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(0, 12) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -20,7 +21,7 @@
 		<summary>Rooms 13 - 24</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(12, 24) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -28,7 +29,7 @@
 		<summary>Rooms 25 - 36</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(24, 36) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -36,7 +37,7 @@
 		<summary>Rooms 37 - 46</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(36, 46) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -44,7 +45,7 @@
 		<summary>Bedrooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(46, 54) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -52,7 +53,7 @@
 		<summary>Hallways</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(54, 62) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -60,7 +61,7 @@
 		<summary>Green Rooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(62, 70) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -68,7 +69,7 @@
 		<summary>Shops</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(70, 78) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -76,7 +77,7 @@
 		<summary>Red Rooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(78, 86) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -84,7 +85,7 @@
 		<summary>Studio Additions</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(86, 94) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -92,7 +93,7 @@
 		<summary>Found Floorplans</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(94, 102) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -100,7 +101,7 @@
 		<summary>Outer Rooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(102, 110) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -109,7 +110,7 @@
 		<summary>Upgraded Rooms</summary>
 		<div class="dir-rooms">
 			{#each directory.slice(0, 12) as room}
-				<img src={getRoomImg(room.room, 'n')} alt={room.room.name} class={room.enabled ? '' : 'disabled'} />
+				<RoomDir {room} />
 			{/each}
 		</div>
 	</details>
@@ -140,10 +141,6 @@
 			grid-template-columns: repeat(4, 1fr);
 			gap: 1em;
 			margin: 1em;
-			& img {
-				width: 100%;
-				height: 100%;
-			}
 		}
 	}
 </style>
