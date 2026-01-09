@@ -6,7 +6,10 @@
 </script>
 
 <div id="outer-room">
-	{#if room}
-		<img src={getRoomImg(room, 'n')} alt={room.name} />
-	{/if}
+	<p>Outer room:</p>
+	<div>
+		{#if room}
+			<img src={getRoomImg(room, 'n')} alt={room.name} />
+		{/if}
+	</div>
 </div>

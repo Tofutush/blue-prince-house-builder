@@ -9,6 +9,6 @@
 
 <main>
 	<House />
-	<OuterRoom room={outerRoom} />
+	<OuterRoom />
 	<Directory />
 </main>
