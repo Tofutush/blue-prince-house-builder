@@ -15,6 +15,7 @@
 	}
 
 	placeRoom({ room: getRoom('Entrance Hall'), coords: [8, 2], direction: 'n' });
+	placeRoom({ room: getRoom('The Foundation'), coords: [4, 2], direction: 'e' });
 </script>
 
 <section id="house">
