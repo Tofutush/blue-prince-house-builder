@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { getRoom, getRoomImgName } from '../functions';
-	import roomImgs from '../images';
+	import { getRoom, getRoomImg } from '../functions';
 	import type { PlacedRoom } from '../types';
 
 	let house: PlacedRoom[][] = Array.from({ length: 9 }, () =>
@@ -22,7 +21,7 @@
 		{#each row as room}
 			<div class="room">
 				{#if room.room}
-					<img src={roomImgs[getRoomImgName(room.room, room.direction || 'n')]} alt={room.room.name} />
+					<img src={getRoomImg(room.room, room.direction || 'n')} alt={room.room.name} />
 				{/if}
 			</div>
 		{/each}

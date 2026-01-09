@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getRoomImgName, roomList } from '../functions';
+	import { getRoomImg, roomList } from '../functions';
 </script>
 
 <section id="directory">
@@ -7,7 +7,7 @@
 		<summary>Rooms 1 - 12</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(0, 12) as room}
-				<img src={getRoomImgName(room, 'n')} alt={room.name} />
+				<img src={getRoomImg(room, 'n')} alt={room.name} />
 			{/each}
 		</div>
 	</details>
