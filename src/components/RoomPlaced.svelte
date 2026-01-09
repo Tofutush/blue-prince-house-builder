@@ -3,9 +3,7 @@
 	import { getRoomImg, rotateDoors, startDraft } from '../functions';
 	import type { Direction, PlacedRoom } from '../types';
 
-	let { room }: { room: PlacedRoom } = $props();
-
-	let realDoors = rotateDoors(room.room, room.direction);
+	let { room, draftables }: { room: PlacedRoom; draftables: Direction[] } = $props();
 
 	function initiateDraft(direction: Direction) {
 		startDraft(getDraftCoords(direction), direction);
@@ -27,7 +25,7 @@
 
 <div class="placed-room">
 	<img src={getRoomImg(room.room, room.direction || 'n')} alt={room.room.name} />
-	{#each realDoors as door}
+	{#each draftables as door}
 		<button aria-label="draft {door}" class="arrow arrow-{door}" onclick={() => initiateDraft(door)}></button>
 	{/each}
 </div>
