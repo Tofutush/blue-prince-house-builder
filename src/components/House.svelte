@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { getRoomImgName, getRoomList } from '../functions';
 	import roomImgs from '../images';
-	import type { Direction, RoomData } from '../types';
+	import type { PlacedRoom } from '../types';
 
-	let house: { room: RoomData | null; direction: Direction | null }[][] = Array.from({ length: 9 }, () =>
+	let house: PlacedRoom[][] = Array.from({ length: 9 }, () =>
 		Array(5).fill({
 			room: null,
 			direction: null,
@@ -11,8 +11,7 @@
 	);
 
 	let roomList = getRoomList();
-	house[3][3] = { room: roomList[0], direction: 'e' };
-	house[6][1] = { room: roomList[1], direction: 'n' };
+	house[8][2] = { room: roomList[1], direction: 'n' };
 </script>
 
 <section id="house">

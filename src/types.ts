@@ -1,9 +1,18 @@
-type Direction = 'n' | 's' | 'w' | 'e';
+export type Direction = 'n' | 's' | 'w' | 'e';
 
-type RoomData = {
+export type RoomData = {
     name: string,
     filename: string,
     doors: Direction[]
 }
 
-export type { Direction, RoomData };
+export type PlacedRoom = {
+    room: RoomData,
+    direction: Direction
+}
+
+export type RoomDir = {
+    room: RoomData,
+    direction: Direction,
+    enabled: boolean
+}
