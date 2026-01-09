@@ -22,7 +22,6 @@
 
 		& div,
 		img {
-			display: block;
 			width: 8em;
 			height: 8em;
 			background-color: #0005;
