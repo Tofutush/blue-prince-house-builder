@@ -6,6 +6,7 @@
 	import { getRoom, roomList, rotateDoors } from './functions';
 	import type { Direction, DirRoom, draftType, PlacedRoom, RoomData } from './types';
 	import Info from './components/Info.svelte';
+	import { direction } from 'html2canvas/dist/types/css/property-descriptors/direction';
 
 	let draft: draftType = $state({
 		active: false,
@@ -77,6 +78,13 @@
 			return room;
 		}
 		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
+		// special case: veranda
+		if (room.room.name === 'Veranda') {
+			if (draft.direction === 'e' || draft.direction === 'w') {
+				room.enabled = false;
+				return room;
+			}
+		}
 		let realDoors = rotateDoors(room.room, draft.direction);
 		// if any one door leads out of bounds, disable
 		let enabled = true;

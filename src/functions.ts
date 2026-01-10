@@ -15,7 +15,8 @@ const specialSticks = [
 	"ballroom",
 	"rumpusroom",
 	"draftingstudio",
-	"workshop"
+	"workshop",
+	"veranda"
 ]
 
 export function getRoomImg(room: RoomData, direction: Direction) {
@@ -24,6 +25,7 @@ export function getRoomImg(room: RoomData, direction: Direction) {
 	if (room.name === 'Antechamber') return roomImgs['antechamber.png'];
 	if (room.name === 'Entrance Hall') return roomImgs['entrancehall-4.png'];
 	if (room.name === 'Room 46') return roomImgs['room46-n.png'];
+	if (room.name === 'Passageway') return roomImgs['passageway-4.png'];
 	if (room.name === 'Chamber of Mirrors' && direction === 'n') return roomImgs['chamberofmirrors-4.png'];
 	// stick-shaped rooms
 	if (room.doors.length === 2 && room.doors.includes('n') && room.doors.includes('s') && !specialSticks.includes(room.filename)) {

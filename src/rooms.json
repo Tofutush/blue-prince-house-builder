@@ -504,5 +504,452 @@
     "doors": [
       "s"
     ]
+  },
+  {
+    "name": "Bedroom",
+    "filename": "bedroom",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Boudoir",
+    "filename": "boudoir",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Guest Bedroom",
+    "filename": "guestbedroom",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Nursery",
+    "filename": "nursery",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Servant's Quarters",
+    "filename": "servantsquarters",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Bunk Room",
+    "filename": "bunkroom",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Her Ladyship's Chamber",
+    "filename": "herladyshipschamber",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Master Bedroom",
+    "filename": "masterbedroom",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Hallway",
+    "filename": "hallway",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "West Wing Hall",
+    "filename": "westwinghall",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "East Wing Hall",
+    "filename": "eastwinghall",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Corridor",
+    "filename": "corridor",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Passageway",
+    "filename": "passageway",
+    "color": [],
+    "doors": [
+      "s",
+      "n",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Secret Passage",
+    "filename": "secretpassage",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Foyer",
+    "filename": "foyer",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Great Hall",
+    "filename": "",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Terrace",
+    "filename": "terrace",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Patio",
+    "filename": "patio",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Courtyard",
+    "filename": "courtyard",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Cloister",
+    "filename": "cloister",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Veranda",
+    "filename": "veranda",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Greenhouse",
+    "filename": "greenhouse",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Morning Room",
+    "filename": "monringroom",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Secret Garden",
+    "filename": "secretgarden",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Commissary",
+    "filename": "commissary",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Kitchen",
+    "filename": "kitchen",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Locksmith",
+    "filename": "locksmith",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Showroom",
+    "filename": "showroom",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Laundry Room",
+    "filename": "laundryroom",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Bookshop",
+    "filename": "bookshop",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "The Armory",
+    "filename": "thearmory",
+    "color": [
+      "gold",
+      "black"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Mount Holly Gift Shop",
+    "filename": "giftshop",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Lavatory",
+    "filename": "lavatory",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Chapel",
+    "filename": "chapel",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Maid's Chamber",
+    "filename": "maidschamber",
+    "color": [
+      "red",
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Archives",
+    "filename": "archives",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Gymnasium",
+    "filename": "gymnasium",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Darkroom",
+    "filename": "darkroom",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Weight Room",
+    "filename": "weightroom",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Furnace",
+    "filename": "furnace",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s"
+    ]
   }
 ]
