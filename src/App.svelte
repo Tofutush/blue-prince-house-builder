@@ -21,8 +21,7 @@
 	}
 
 	placeRoom({ room: getRoom('Entrance Hall'), coords: [8, 2], direction: 'n' });
-	placeRoom({ room: getRoom('The Foundation'), coords: [7, 2], direction: 'w' });
-	placeRoom({ room: getRoom('The Foundation'), coords: [4, 2], direction: 'e' });
+	placeRoom({ room: getRoom('Antechamber'), coords: [0, 2], direction: 'n' });
 
 	function initiateDraft(coords: number[], direction: Direction) {
 		if (draft.active) throw new Error('drafting in progress, how could you start another you dumbfuck!');
