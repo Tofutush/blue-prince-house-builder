@@ -100,7 +100,8 @@
 				{:else}
 					<p>You're currently drafting towards direction {draft.direction?.toUpperCase()} into Rank {9 - draft.coords[0]} Column {draft.coords[1] + 1}!</p>
 				{/if}
-				<button onclick={stopDrafting}>Cancel</button>
+				<button onclick={stopDrafting}>Cancel Drafting</button>
+				<hr />
 				<button onclick={selectRandom}>Use Blessing of the Berry Picker</button>
 				<p>(Selects a draftable room at random.)</p>
 			{/if}
@@ -120,6 +121,12 @@
 		flex-direction: column;
 		justify-content: space-between;
 		margin: 1em 0;
-		width: 10em;
+		width: 14em;
+	}
+	#buttons button {
+		cursor: pointer;
+	}
+	hr {
+		margin: 1em 0;
 	}
 </style>
