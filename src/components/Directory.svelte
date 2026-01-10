@@ -7,40 +7,13 @@
 		draft: draftType;
 		draftDone: (room: RoomData) => void;
 		draftTemporary: (room: RoomData | null) => void;
+		getDraftingRoom: (room: DirRoom) => DirRoom;
 	};
-	let { draft, draftDone, draftTemporary }: Args = $props();
+	let { draft, draftDone, draftTemporary, getDraftingRoom }: Args = $props();
 
 	let directory: DirRoom[] = roomList.map((r) => {
 		return { room: r, direction: 'n', enabled: true };
 	});
-
-	function getDraftingRoom(room: DirRoom) {
-		if (!draft.active) throw new Error('drafting not in progress!');
-		if (draft.outer) {
-			if (room.room.outer) room.enabled = true;
-			else room.enabled = false;
-			room.direction = 'n';
-			return room;
-		}
-		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
-		let realDoors = rotateDoors(room.room, draft.direction);
-		// if any one door leads out of bounds, disable
-		let enabled = true;
-		if (room.room.name === 'Entrance Hall' || room.room.name === 'The Antechamber' || room.room.name === 'Room 46') enabled = false;
-		else {
-			for (let z = 0; z < realDoors.length; z++) {
-				let coords: number[] = [];
-				if (realDoors[z] === 'e') coords = [draft.coords[0], draft.coords[1] + 1];
-				else if (realDoors[z] === 'w') coords = [draft.coords[0], draft.coords[1] - 1];
-				else if (realDoors[z] === 'n') coords = [draft.coords[0] - 1, draft.coords[1]];
-				else if (realDoors[z] === 's') coords = [draft.coords[0] + 1, draft.coords[1]];
-				if (coords[0] < 0 || coords[0] > 8 || coords[1] < 0 || coords[1] > 4) enabled = false;
-			}
-		}
-		room.direction = draft.direction;
-		room.enabled = enabled;
-		return room;
-	}
 </script>
 
 <section id="directory">
