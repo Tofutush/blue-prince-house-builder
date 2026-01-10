@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { roomList, rotateDoors } from '../functions';
+	import { roomList } from '../functions';
 	import type { DirRoom, draftType, RoomData } from '../types';
 	import RoomDir from './RoomDir.svelte';
 
