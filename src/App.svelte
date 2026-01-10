@@ -2,7 +2,7 @@
 	import Directory from './components/Directory.svelte';
 	import House from './components/House.svelte';
 	import OuterRoom from './components/OuterRoom.svelte';
-	import { getRoom, rotateDoors } from './functions';
+	import { getRoom, roomList, rotateDoors } from './functions';
 	import type { Direction, DirRoom, draftType, PlacedRoom, RoomData } from './types';
 
 	let draft: draftType = $state({
@@ -53,7 +53,12 @@
 			outer: false,
 		};
 	}
-	function selectRandom() {}
+	function selectRandom() {
+		if (draft.active && draft.direction && !draft.outer) {
+			let filteredRoomList = roomList.filter((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true }).enabled);
+			console.log(filteredRoomList);
+		}
+	}
 
 	// used by directory to rotate rooms and disable rooms while drafting
 	function getDraftingRoom(room: DirRoom) {
@@ -96,7 +101,7 @@
 					<p>You're currently drafting towards direction {draft.direction?.toUpperCase()} into Rank {9 - draft.coords[0]} Column {draft.coords[1] + 1}!</p>
 				{/if}
 				<button onclick={stopDrafting}>Cancel</button>
-				<button onclick={selectRandom}>Blessing of the Cherry Picker</button>
+				<button onclick={selectRandom}>Use Blessing of the Berry Picker</button>
 				<p>(Selects a draftable room at random.)</p>
 			{/if}
 		</section>
