@@ -9,6 +9,7 @@
 		active: false,
 		coords: [0, 0],
 		direction: null as Direction | null,
+		monk: false,
 	});
 
 	let outerRoom: RoomData | null = $state(null);
@@ -46,12 +47,10 @@
 		placeRoom({ room: room, direction: draft.direction as Direction, coords: [draft.coords[0], draft.coords[1]], temporary: true });
 	}
 	function stopDrafting() {
-		draft = {
-			active: false,
-			coords: [0, 0],
-			direction: null as Direction | null,
-			outer: false,
-		};
+		draft.active = false;
+		draft.coords = [0, 0];
+		draft.direction = null;
+		draft.outer = false;
 	}
 	function selectRandom() {
 		if (draft.active && draft.direction && !draft.outer) {
@@ -64,9 +63,13 @@
 	function getDraftingRoom(room: DirRoom) {
 		if (!draft.active) throw new Error('drafting not in progress!');
 		if (draft.outer) {
+			room.direction = 'n';
+			if (draft.monk) {
+				room.enabled = true;
+				return room;
+			}
 			if (room.room.outer) room.enabled = true;
 			else room.enabled = false;
-			room.direction = 'n';
 			return room;
 		}
 		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
@@ -104,6 +107,8 @@
 				<hr />
 				<button onclick={selectRandom}>Use Blessing of the Berry Picker</button>
 				<p>(Selects a draftable room at random.)</p>
+			{:else}
+				<label><input type="checkbox" bind:checked={draft.monk} />Blessing of the Monk (draft any room as the Outer Room)</label>
 			{/if}
 		</section>
 		<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} />
