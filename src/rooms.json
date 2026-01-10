@@ -128,5 +128,381 @@
     "doors": [
       "s"
     ]
+  },
+  {
+    "name": "Nook",
+    "filename": "nook",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Garage",
+    "filename": "garage",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Music Room",
+    "filename": "musicroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Locker Room",
+    "filename": "lockerroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Den",
+    "filename": "den",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Wine Cellar",
+    "filename": "winecellar",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Trophy Room",
+    "filename": "trophyroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Ballroom",
+    "filename": "ballroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Pantry",
+    "filename": "pantry",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Rumpus Room",
+    "filename": "rumpusroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Vault",
+    "filename": "vault",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Office",
+    "filename": "office",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Drawing Room",
+    "filename": "drawingroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "n"
+    ]
+  },
+  {
+    "name": "Study",
+    "filename": "study",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Library",
+    "filename": "library",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Chamber of Mirrors",
+    "filename": "chamberofmirrors",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "The Pool",
+    "filename": "thepool",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Drafting Studio",
+    "filename": "draftingstudio",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Utility Closet",
+    "filename": "utilitycloset",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Boiler Room",
+    "filename": "boilerroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "n"
+    ]
+  },
+  {
+    "name": "Pump Room",
+    "filename": "pumproom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Security",
+    "filename": "security",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Workshop",
+    "filename": "workshop",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Laboratory",
+    "filename": "laboratory",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Sauna",
+    "filename": "sauna",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Coat Check",
+    "filename": "coatcheck",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Mail Room",
+    "filename": "mailroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Freezer",
+    "filename": "freezer",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Dining Room",
+    "filename": "diningroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Observatory",
+    "filename": "observatory",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Conference Room",
+    "filename": "conferenceroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Aquarium",
+    "filename": "aquarium",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Antechamber",
+    "filename": "antechamber",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "n",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Room 46",
+    "filename": "room46",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
   }
 ]
