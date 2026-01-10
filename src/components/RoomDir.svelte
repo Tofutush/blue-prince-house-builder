@@ -26,9 +26,9 @@
 
 <button onclick={selected} onmouseenter={hovered} onmouseleave={exited}>
 	{#if draft.active}
-		<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? 'active' : 'disabled'} />
+		<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} title={room.room.name} class={room.enabled ? 'active' : 'disabled'} />
 	{:else}
-		<img src={getRoomImg(room.room, 'n')} alt={room.room.name} />
+		<img src={getRoomImg(room.room, 'n')} alt={room.room.name} title={room.room.name} />
 	{/if}
 </button>
 

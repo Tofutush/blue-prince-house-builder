@@ -669,7 +669,7 @@
   },
   {
     "name": "Great Hall",
-    "filename": "",
+    "filename": "greathall",
     "color": [
       "orange"
     ],
@@ -882,7 +882,7 @@
   },
   {
     "name": "Maid's Chamber",
-    "filename": "maidschamber",
+    "filename": "maidschambers",
     "color": [
       "red",
       "purple"

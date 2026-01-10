@@ -2,11 +2,10 @@
 	import html2canvas from 'html2canvas';
 	import Directory from './components/Directory.svelte';
 	import House from './components/House.svelte';
+	import Info from './components/Info.svelte';
 	import OuterRoom from './components/OuterRoom.svelte';
 	import { getRoom, roomList, rotateDoors } from './functions';
 	import type { Direction, DirRoom, draftType, PlacedRoom, RoomData } from './types';
-	import Info from './components/Info.svelte';
-	import { direction } from 'html2canvas/dist/types/css/property-descriptors/direction';
 
 	let draft: draftType = $state({
 		active: false,
