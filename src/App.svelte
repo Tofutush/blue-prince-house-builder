@@ -2,6 +2,7 @@
 	import Directory from './components/Directory.svelte';
 	import House from './components/House.svelte';
 	import OuterRoom from './components/OuterRoom.svelte';
+	import RoomPlaced from './components/RoomPlaced.svelte';
 	import { getRoom, roomList, rotateDoors } from './functions';
 	import type { Direction, DirRoom, draftType, PlacedRoom, RoomData } from './types';
 
@@ -90,6 +91,31 @@
 		room.enabled = enabled;
 		return room;
 	}
+
+	function exportJSON() {
+		var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(house));
+		var downloadAnchorNode = document.createElement('a');
+		downloadAnchorNode.setAttribute('href', dataStr);
+		downloadAnchorNode.setAttribute('download', 'house' + '.json');
+		document.body.appendChild(downloadAnchorNode); // required for firefox
+		downloadAnchorNode.click();
+		downloadAnchorNode.remove();
+	}
+	function importJSON() {
+		let files = (document.getElementById('import') as HTMLInputElement).files;
+		if (!files || files.length === 0) {
+			alert('please upload a file first!');
+			return;
+		}
+		let file = files[0];
+		var fr = new FileReader();
+		fr.onload = () => {
+			if (typeof fr.result !== 'string') return;
+			let data = JSON.parse(fr.result);
+			house = data as (PlacedRoom | null)[][];
+		};
+		fr.readAsText(file);
+	}
 </script>
 
 <main>
@@ -108,6 +134,10 @@
 				<p>(Selects a draftable room at random.)</p>
 			{:else}
 				<label><input type="checkbox" bind:checked={draft.monk} />Blessing of the Monk (draft any room as the Outer Room)</label>
+				<button>Generate PNG</button>
+				<button onclick={exportJSON}>Export JSON</button>
+				<input type="file" accept="application/json" multiple={false} id="import" />
+				<button onclick={importJSON}>Import JSON</button>
 			{/if}
 		</section>
 		<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} />
@@ -129,6 +159,8 @@
 	}
 	#buttons button {
 		cursor: pointer;
+		display: block;
+		margin: 0.5em 0;
 	}
 	hr {
 		margin: 1em 0;
