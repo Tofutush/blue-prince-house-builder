@@ -44,5 +44,89 @@
       "s",
       "w"
     ]
+  },
+  {
+    "name": "Parlor",
+    "filename": "parlor",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Billiard Room",
+    "filename": "billiardroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Gallery",
+    "filename": "gallery",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "n",
+      "s"
+    ]
+  },
+  {
+    "name": "Room 8",
+    "filename": "room8",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Closet",
+    "filename": "closet",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Walk-In Closet",
+    "filename": "walkincloset",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Attic",
+    "filename": "attic",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Storeroom",
+    "filename": "storeroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
   }
 ]
