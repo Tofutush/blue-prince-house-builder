@@ -223,4 +223,9 @@
 	hr {
 		margin: 1em 0;
 	}
+	@media screen and (max-width: 870px) {
+		main {
+			display: block;
+		}
+	}
 </style>
