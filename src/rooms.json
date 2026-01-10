@@ -22,5 +22,27 @@
       "w",
       "n"
     ]
+  },
+  {
+    "name": "Spare Room",
+    "filename": "spareroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "n",
+      "s"
+    ]
+  },
+  {
+    "name": "Rotunda",
+    "filename": "rotunda",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
   }
 ]

@@ -9,6 +9,8 @@ let roomImgs = Object.fromEntries(Object.entries(import.meta.glob('./assets/room
 export const roomList: RoomData[] = roomListJson as RoomData[];
 
 export function getRoomImg(room: RoomData, direction: Direction) {
+	console.log(roomImgs);
+
 	if (!room.filename) throw new Error('no filename');
 	// special rooms
 	if (room.name === 'Antechamber') return roomImgs['antechamber.png'];
@@ -16,8 +18,8 @@ export function getRoomImg(room: RoomData, direction: Direction) {
 	if (room.name === 'Room 46') return roomImgs['room46-n.png'];
 	// stick-shaped rooms
 	if (room.doors.length === 2 && room.doors.includes('n') && room.doors.includes('s')) {
-		if (direction === 'n' || direction === 's') return room.filename + '-ns.png';
-		else return room.filename + '-ew.png';
+		if (direction === 'n' || direction === 's') return roomImgs[room.filename + '-ns.png'];
+		else return roomImgs[room.filename + '-ew.png'];
 	}
 	// all the others
 	return roomImgs[`${room.filename}-${direction}.png`];
