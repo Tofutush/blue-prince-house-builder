@@ -3,7 +3,8 @@ export type Direction = 'n' | 's' | 'w' | 'e';
 export type RoomData = {
 	name: string,
 	filename: string,
-	doors: Direction[]
+	doors: Direction[],
+	outer?: boolean
 }
 
 export type PlacedRoom = {
@@ -22,5 +23,6 @@ export type DirRoom = {
 export type draftType = {
 	active: boolean,
 	coords: number[],
-	direction: Direction | null
+	direction: Direction | null,
+	outer?: boolean
 }

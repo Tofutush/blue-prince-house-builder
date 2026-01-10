@@ -9,8 +9,6 @@ let roomImgs = Object.fromEntries(Object.entries(import.meta.glob('./assets/room
 export const roomList: RoomData[] = roomListJson as RoomData[];
 
 export function getRoomImg(room: RoomData, direction: Direction) {
-	console.log(roomImgs);
-
 	if (!room.filename) throw new Error('no filename');
 	// special rooms
 	if (room.name === 'Antechamber') return roomImgs['antechamber.png'];

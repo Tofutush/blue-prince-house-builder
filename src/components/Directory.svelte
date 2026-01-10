@@ -15,7 +15,14 @@
 	});
 
 	function getDraftingRoom(room: DirRoom) {
-		if (!(draft.active && draft.coords && draft.direction)) throw new Error('drafting not in progress!');
+		if (!draft.active) throw new Error('drafting not in progress!');
+		if (draft.outer) {
+			if (room.room.outer) room.enabled = true;
+			else room.enabled = false;
+			room.direction = 'n';
+			return room;
+		}
+		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
 		let realDoors = rotateDoors(room.room, draft.direction);
 		// if any one door leads out of bounds, disable
 		let enabled = true;
@@ -32,8 +39,6 @@
 		}
 		room.direction = draft.direction;
 		room.enabled = enabled;
-		console.log(room);
-
 		return room;
 	}
 </script>

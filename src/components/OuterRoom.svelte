@@ -1,20 +1,27 @@
 <script lang="ts">
 	import { getRoomImg } from '../functions';
-	import type { RoomData } from '../types';
+	import type { draftType, RoomData } from '../types';
 
 	type Args = {
-		room?: RoomData;
+		room: RoomData | null;
+		draft: draftType;
+		draftStart: () => void;
 	};
-	let { room }: Args = $props();
+	let { room, draft, draftStart }: Args = $props();
+
+	function buttonClick() {
+		if (draft.active || room) return;
+		draftStart();
+	}
 </script>
 
 <div id="outer-room">
 	<p>Outer room:</p>
-	<div>
+	<button onclick={buttonClick}>
 		{#if room}
 			<img src={getRoomImg(room, 'n')} alt={room.name} />
 		{/if}
-	</div>
+	</button>
 </div>
 
 <style>
@@ -23,11 +30,16 @@
 		width: 8em;
 		margin: 1em 0;
 
-		& div,
+		& button,
 		img {
+			all: unset;
 			width: 8em;
 			height: 8em;
 			background-color: #0005;
+			display: block;
+		}
+		& button:not(:has(img)) {
+			cursor: pointer;
 		}
 	}
 </style>

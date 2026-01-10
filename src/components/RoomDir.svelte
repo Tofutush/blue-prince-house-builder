@@ -15,10 +15,11 @@
 		draftDone(room.room);
 	}
 	function hovered() {
-		if (!draft.active || !room.enabled) return;
+		if (!draft.active || !room.enabled || draft.outer) return;
 		draftTemporary(room.room);
 	}
 	function exited() {
+		if (!draft.active || !room.enabled || draft.outer) return;
 		draftTemporary(null);
 	}
 </script>
