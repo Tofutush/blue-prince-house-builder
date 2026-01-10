@@ -58,6 +58,9 @@
 		let filteredRoomList = roomList.filter((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true }).enabled);
 		draftRoom(filteredRoomList[Math.floor(Math.random() * filteredRoomList.length)]);
 	}
+	function deleteRoom(coords: number[]) {
+		house[coords[0]][coords[1]] = null;
+	}
 
 	// used by directory to rotate rooms and disable rooms while drafting
 	function getDraftingRoom(room: DirRoom) {
@@ -164,7 +167,7 @@
 </script>
 
 <main>
-	<House {house} {draft} draftStart={initiateDraft} />
+	<House {house} {draft} draftStart={initiateDraft} {deleteRoom} />
 	<section id="middle">
 		<section id="buttons">
 			{#if draft.active}

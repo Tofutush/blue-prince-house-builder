@@ -7,8 +7,9 @@
 		draftables: Direction[];
 		draft: draftType;
 		draftStart: (coords: number[], direction: Direction) => void;
+		deleteRoom: (coords: number[]) => void;
 	};
-	let { room, draftables, draft, draftStart }: Args = $props();
+	let { room, draftables, draft, draftStart, deleteRoom }: Args = $props();
 
 	function getDraftCoords(direction: Direction) {
 		let coords: number[] = [];
@@ -27,8 +28,9 @@
 	<img class={room.temporary ? 'temp' : ''} src={getRoomImg(room.room, room.direction || 'n')} alt={room.room.name} />
 	{#if !draft.active}
 		{#each draftables as door}
-			<button aria-label="draft {door}" class="arrow arrow-{door}" onclick={() => draftStart(getDraftCoords(door), door)}></button>
+			<button aria-label="draft {door}" title="Draft to direction {door.toUpperCase()}" class="arrow arrow-{door}" onclick={() => draftStart(getDraftCoords(door), door)}></button>
 		{/each}
+		<button aria-label="delete room" title="Delete this room" class="delete" onclick={() => deleteRoom(room.coords)}></button>
 	{/if}
 </div>
 
@@ -43,15 +45,28 @@
 			opacity: 0.5;
 		}
 	}
+	.delete {
+		all: unset;
+		position: absolute;
+		width: 1.4em;
+		height: 1.4em;
+		top: calc(50% - 0.7em);
+		left: calc(50% - 0.7em);
+		display: none;
+		background-color: #ef9c0d;
+		clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+		cursor: pointer;
+	}
 	.arrow {
 		all: unset;
 		position: absolute;
-		background-color: red;
+		background-color: #ffee00;
 		cursor: pointer;
 		display: none;
 	}
 
-	.placed-room:hover .arrow {
+	.placed-room:hover .arrow,
+	.placed-room:hover .delete {
 		display: block;
 	}
 

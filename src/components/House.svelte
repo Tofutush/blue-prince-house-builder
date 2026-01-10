@@ -7,8 +7,9 @@
 		house: (PlacedRoom | null)[][];
 		draft: draftType;
 		draftStart: (coords: number[], direction: Direction) => void;
+		deleteRoom: (coords: number[]) => void;
 	};
-	let { house, draft, draftStart }: Args = $props();
+	let { house, draft, draftStart, deleteRoom }: Args = $props();
 
 	function getDraftables(room: PlacedRoom) {
 		let realDoors = rotateDoors(room.room, room.direction);
@@ -30,7 +31,7 @@
 		{#each row as room}
 			<div class="room">
 				{#if room?.room}
-					<RoomPlaced {draftStart} {draft} {room} draftables={getDraftables(room)} />
+					<RoomPlaced {draftStart} {deleteRoom} {draft} {room} draftables={getDraftables(room)} />
 				{/if}
 			</div>
 		{/each}
