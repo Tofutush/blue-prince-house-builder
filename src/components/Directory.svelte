@@ -3,7 +3,12 @@
 	import type { DirRoom, draftType, RoomData } from '../types';
 	import RoomDir from './RoomDir.svelte';
 
-	let { draft, draftDone, draftTemporary }: { draft: draftType; draftDone: (room: RoomData) => void; draftTemporary: (room: RoomData | null) => void } = $props();
+	type Args = {
+		draft: draftType;
+		draftDone: (room: RoomData) => void;
+		draftTemporary: (room: RoomData | null) => void;
+	};
+	let { draft, draftDone, draftTemporary }: Args = $props();
 
 	let directory: DirRoom[] = roomList.map((r) => {
 		return { room: r, direction: 'n', enabled: true };

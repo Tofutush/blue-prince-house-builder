@@ -2,7 +2,13 @@
 	import { getRoomImg } from '../functions';
 	import type { Direction, draftType, PlacedRoom } from '../types';
 
-	let { room, draftables, draft, draftStart }: { room: PlacedRoom; draftables: Direction[]; draft: draftType; draftStart: (coords: number[], direction: Direction) => void } = $props();
+	type Args = {
+		room: PlacedRoom;
+		draftables: Direction[];
+		draft: draftType;
+		draftStart: (coords: number[], direction: Direction) => void;
+	};
+	let { room, draftables, draft, draftStart }: Args = $props();
 
 	function getDraftCoords(direction: Direction) {
 		let coords: number[] = [];

@@ -2,7 +2,13 @@
 	import { getRoomImg } from '../functions';
 	import type { DirRoom, draftType, RoomData } from '../types';
 
-	let { room, draft, draftDone, draftTemporary }: { room: DirRoom; draft: draftType; draftDone: (room: RoomData) => void; draftTemporary: (room: RoomData | null) => void } = $props();
+	type Args = {
+		room: DirRoom;
+		draft: draftType;
+		draftDone: (room: RoomData) => void;
+		draftTemporary: (room: RoomData | null) => void;
+	};
+	let { room, draft, draftDone, draftTemporary }: Args = $props();
 
 	function selected() {
 		if (!draft.active || !room.enabled) return;

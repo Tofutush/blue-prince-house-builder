@@ -2,7 +2,10 @@
 	import { getRoomImg } from '../functions';
 	import type { RoomData } from '../types';
 
-	let { room }: { room?: RoomData } = $props();
+	type Args = {
+		room?: RoomData;
+	};
+	let { room }: Args = $props();
 </script>
 
 <div id="outer-room">
