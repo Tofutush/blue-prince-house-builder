@@ -1,8 +1,8 @@
 <script lang="ts">
+	import html2canvas from 'html2canvas';
 	import Directory from './components/Directory.svelte';
 	import House from './components/House.svelte';
 	import OuterRoom from './components/OuterRoom.svelte';
-	import RoomPlaced from './components/RoomPlaced.svelte';
 	import { getRoom, roomList, rotateDoors } from './functions';
 	import type { Direction, DirRoom, draftType, PlacedRoom, RoomData } from './types';
 
@@ -116,6 +116,51 @@
 		};
 		fr.readAsText(file);
 	}
+	async function exportPNG() {
+		let houseEl = document.getElementById('house');
+		let outerEl = document.getElementById('outer-room');
+		if (!houseEl || !outerEl) return;
+
+		let exportWrap = document.createElement('div');
+		exportWrap.id = 'export-wrap';
+		exportWrap.style.position = 'fixed';
+		exportWrap.style.padding = '1em';
+		exportWrap.style.paddingBottom = '0';
+		exportWrap.style.left = '-99999px';
+		exportWrap.style.background = '#fff';
+
+		let side = document.createElement('div');
+		side.style.display = 'flex';
+		side.append(houseEl, outerEl);
+
+		houseEl.style.width = '400px';
+		houseEl.style.margin = '0';
+		outerEl.style.alignSelf = 'end';
+		outerEl.style.marginLeft = '1em';
+
+		let credit = document.createElement('p');
+		credit.innerHTML = 'Made with Blue Prince House Builder by Tofutush<br/>https://tofutush.github.io/blue-prince-house-builder/';
+		exportWrap.append(side, credit);
+
+		document.body.appendChild(exportWrap);
+		let canvas = await html2canvas(exportWrap);
+
+		// restore DOM
+		document.querySelector('main')?.prepend(houseEl);
+		document.getElementById('middle')?.appendChild(outerEl);
+
+		houseEl.style.width = 'fit-content';
+		houseEl.style.margin = '1em';
+		outerEl.style.alignSelf = '';
+		outerEl.style.marginLeft = '';
+
+		exportWrap.remove();
+
+		let link = document.createElement('a');
+		link.download = 'house.png';
+		link.href = canvas.toDataURL('image/png');
+		link.click();
+	}
 </script>
 
 <main>
@@ -134,7 +179,7 @@
 				<p>(Selects a draftable room at random.)</p>
 			{:else}
 				<label><input type="checkbox" bind:checked={draft.monk} />Blessing of the Monk (draft any room as the Outer Room)</label>
-				<button>Generate PNG</button>
+				<button onclick={exportPNG}>Generate PNG</button>
 				<button onclick={exportJSON}>Export JSON</button>
 				<input type="file" accept="application/json" multiple={false} id="import" />
 				<button onclick={importJSON}>Import JSON</button>
