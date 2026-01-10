@@ -5,6 +5,7 @@
 	import OuterRoom from './components/OuterRoom.svelte';
 	import { getRoom, roomList, rotateDoors } from './functions';
 	import type { Direction, DirRoom, draftType, PlacedRoom, RoomData } from './types';
+	import Info from './components/Info.svelte';
 
 	let draft: draftType = $state({
 		active: false,
@@ -15,6 +16,7 @@
 
 	let outerRoom: RoomData | null = $state(null);
 	let house: (PlacedRoom | null)[][] = $state(Array.from({ length: 9 }, () => Array(5).fill(null)));
+	let infoShown = $state(true);
 
 	function placeRoom(room: PlacedRoom) {
 		house[room.coords[0]][room.coords[1]] = room;
@@ -163,33 +165,42 @@
 		link.href = canvas.toDataURL('image/png');
 		link.click();
 	}
+
+	function closeInfo() {
+		infoShown = false;
+	}
 </script>
 
 <main>
-	<House {house} {draft} draftStart={initiateDraft} {deleteRoom} />
-	<section id="middle">
-		<section id="buttons">
-			{#if draft.active}
-				{#if draft.outer}
-					<p>You're currently drafting the Outer Room!</p>
+	{#if infoShown}
+		<Info proceed={closeInfo} />
+	{:else}
+		<House {house} {draft} draftStart={initiateDraft} {deleteRoom} />
+		<section id="middle">
+			<section id="buttons">
+				{#if draft.active}
+					{#if draft.outer}
+						<p>You're currently drafting the Outer Room!</p>
+					{:else}
+						<p>You're currently drafting towards direction {draft.direction?.toUpperCase()} into Rank {9 - draft.coords[0]} Column {draft.coords[1] + 1}!</p>
+					{/if}
+					<button onclick={stopDrafting}>Cancel Drafting</button>
+					<hr />
+					<button onclick={selectRandom}>Use Blessing of the Berry Picker</button>
+					<p>(Selects a draftable room at random.)</p>
 				{:else}
-					<p>You're currently drafting towards direction {draft.direction?.toUpperCase()} into Rank {9 - draft.coords[0]} Column {draft.coords[1] + 1}!</p>
+					<button onclick={() => (infoShown = true)}>Show info</button>
+					<label><input type="checkbox" bind:checked={draft.monk} />Blessing of the Monk (draft any room as the Outer Room)</label>
+					<button onclick={exportPNG}>Generate PNG</button>
+					<button onclick={exportJSON}>Export JSON</button>
+					<input type="file" accept="application/json" multiple={false} id="import" />
+					<button onclick={importJSON}>Import JSON</button>
 				{/if}
-				<button onclick={stopDrafting}>Cancel Drafting</button>
-				<hr />
-				<button onclick={selectRandom}>Use Blessing of the Berry Picker</button>
-				<p>(Selects a draftable room at random.)</p>
-			{:else}
-				<label><input type="checkbox" bind:checked={draft.monk} />Blessing of the Monk (draft any room as the Outer Room)</label>
-				<button onclick={exportPNG}>Generate PNG</button>
-				<button onclick={exportJSON}>Export JSON</button>
-				<input type="file" accept="application/json" multiple={false} id="import" />
-				<button onclick={importJSON}>Import JSON</button>
-			{/if}
+			</section>
+			<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} />
 		</section>
-		<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} />
-	</section>
-	<Directory {draft} draftDone={draftRoom} {draftTemporary} {getDraftingRoom} />
+		<Directory {draft} draftDone={draftRoom} {draftTemporary} {getDraftingRoom} />
+	{/if}
 </main>
 
 <style>
