@@ -36,12 +36,7 @@
 	function draftRoom(room: RoomData) {
 		if (draft.outer) outerRoom = room;
 		else placeRoom({ room: room, direction: draft.direction as Direction, coords: [draft.coords[0], draft.coords[1]] });
-		draft = {
-			active: false,
-			coords: [0, 0],
-			direction: null as Direction | null,
-			outer: false,
-		};
+		stopDrafting();
 	}
 	function draftTemporary(room: RoomData | null) {
 		if (room == null) {
@@ -50,11 +45,34 @@
 		}
 		placeRoom({ room: room, direction: draft.direction as Direction, coords: [draft.coords[0], draft.coords[1]], temporary: true });
 	}
+	function stopDrafting() {
+		draft = {
+			active: false,
+			coords: [0, 0],
+			direction: null as Direction | null,
+			outer: false,
+		};
+	}
+	function selectRandom() {}
 </script>
 
 <main>
 	<House {house} {draft} draftStart={initiateDraft} />
-	<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} />
+	<section id="middle">
+		<section id="buttons">
+			{#if draft.active}
+				{#if draft.outer}
+					<p>You're currently drafting the Outer Room!</p>
+				{:else}
+					<p>You're currently drafting towards direction {draft.direction?.toUpperCase()} into Rank {9 - draft.coords[0]} Column {draft.coords[1] + 1}!</p>
+				{/if}
+				<button onclick={stopDrafting}>Cancel</button>
+				<button onclick={selectRandom}>Blessing of the Cherry Picker</button>
+				<p>(Selects a draftable room at random.)</p>
+			{/if}
+		</section>
+		<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} />
+	</section>
 	<Directory {draft} draftDone={draftRoom} {draftTemporary} />
 </main>
 
@@ -62,5 +80,12 @@
 	main {
 		display: flex;
 		align-items: stretch;
+	}
+	#middle {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin: 1em 0;
+		width: 10em;
 	}
 </style>

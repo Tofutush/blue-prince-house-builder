@@ -26,9 +26,7 @@
 
 <style>
 	#outer-room {
-		align-self: end;
 		width: 8em;
-		margin: 1em 0;
 
 		& button,
 		img {
