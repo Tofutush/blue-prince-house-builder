@@ -147,7 +147,7 @@
 		exportWrap.append(side, credit);
 
 		document.body.appendChild(exportWrap);
-		let canvas = await html2canvas(exportWrap);
+		let canvas = await html2canvas(exportWrap, { scale: 4 });
 
 		// restore DOM
 		document.querySelector('main')?.prepend(houseEl);
