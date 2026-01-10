@@ -18,7 +18,7 @@
 </script>
 
 <div class="placed-room">
-	<img src={getRoomImg(room.room, room.direction || 'n')} alt={room.room.name} />
+	<img class={room.temporary ? 'temp' : ''} src={getRoomImg(room.room, room.direction || 'n')} alt={room.room.name} />
 	{#if !draft.active}
 		{#each draftables as door}
 			<button aria-label="draft {door}" class="arrow arrow-{door}" onclick={() => draftStart(getDraftCoords(door), door)}></button>
@@ -33,6 +33,9 @@
 	img {
 		width: 100%;
 		height: 100%;
+		&.temp {
+			opacity: 0.5;
+		}
 	}
 	.arrow {
 		all: unset;

@@ -3,7 +3,7 @@
 	import type { Direction, draftType, PlacedRoom } from '../types';
 	import RoomPlaced from './RoomPlaced.svelte';
 
-	let { house, draft, draftStart }: { house: PlacedRoom[][]; draft: draftType; draftStart: (coords: number[], direction: Direction) => void } = $props();
+	let { house, draft, draftStart }: { house: (PlacedRoom | null)[][]; draft: draftType; draftStart: (coords: number[], direction: Direction) => void } = $props();
 
 	function getDraftables(room: PlacedRoom) {
 		let realDoors = rotateDoors(room.room, room.direction);

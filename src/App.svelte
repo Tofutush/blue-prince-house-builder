@@ -12,7 +12,7 @@
 	});
 
 	let outerRoom = getRoom('The Foundation');
-	let house: PlacedRoom[][] = $state(Array.from({ length: 9 }, () => Array(5).fill(null)));
+	let house: (PlacedRoom | null)[][] = $state(Array.from({ length: 9 }, () => Array(5).fill(null)));
 
 	function placeRoom(room: PlacedRoom) {
 		house[room.coords[0]][room.coords[1]] = room;
@@ -36,12 +36,19 @@
 			direction: null as Direction | null,
 		};
 	}
+	function draftTemporary(room: RoomData | null) {
+		if (room == null) {
+			house[draft.coords[0]][draft.coords[1]] = null;
+			return;
+		}
+		placeRoom({ room: room, direction: draft.direction as Direction, coords: [draft.coords[0], draft.coords[1]], temporary: true });
+	}
 </script>
 
 <main>
 	<House {house} {draft} draftStart={initiateDraft} />
 	<OuterRoom />
-	<Directory {draft} draftDone={draftRoom} />
+	<Directory {draft} draftDone={draftRoom} {draftTemporary} />
 </main>
 
 <style>

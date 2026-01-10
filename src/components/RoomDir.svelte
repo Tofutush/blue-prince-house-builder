@@ -2,15 +2,22 @@
 	import { getRoomImg } from '../functions';
 	import type { DirRoom, draftType, RoomData } from '../types';
 
-	let { room, draft, draftDone }: { room: DirRoom; draft: draftType; draftDone: (room: RoomData) => void } = $props();
+	let { room, draft, draftDone, draftTemporary }: { room: DirRoom; draft: draftType; draftDone: (room: RoomData) => void; draftTemporary: (room: RoomData | null) => void } = $props();
 
 	function selected() {
 		if (!draft.active || !room.enabled) return;
 		draftDone(room.room);
 	}
+	function hovered() {
+		if (!draft.active || !room.enabled) return;
+		draftTemporary(room.room);
+	}
+	function exited() {
+		draftTemporary(null);
+	}
 </script>
 
-<button onclick={selected}>
+<button onclick={selected} onmouseenter={hovered} onmouseleave={exited}>
 	{#if draft.active}
 		<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} class={room.enabled ? 'active' : 'disabled'} />
 	{:else}

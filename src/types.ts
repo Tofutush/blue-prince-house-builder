@@ -9,7 +9,8 @@ export type RoomData = {
 export type PlacedRoom = {
 	room: RoomData,
 	direction: Direction,
-	coords: number[]
+	coords: number[],
+	temporary?: boolean
 }
 
 export type DirRoom = {
