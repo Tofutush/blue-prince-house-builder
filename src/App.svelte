@@ -53,10 +53,9 @@
 		draft.outer = false;
 	}
 	function selectRandom() {
-		if (draft.active && draft.direction && !draft.outer) {
-			let filteredRoomList = roomList.filter((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true }).enabled);
-			console.log(filteredRoomList);
-		}
+		if (!draft.active) return;
+		let filteredRoomList = roomList.filter((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true }).enabled);
+		draftRoom(filteredRoomList[Math.floor(Math.random() * filteredRoomList.length)]);
 	}
 
 	// used by directory to rotate rooms and disable rooms while drafting
