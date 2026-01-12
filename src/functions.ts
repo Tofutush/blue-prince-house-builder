@@ -32,6 +32,7 @@ export function getRoomImg(room: RoomData, direction: Direction) {
 	// special rooms
 	if (room.name === 'Antechamber') return roomImgs['antechamber.png'];
 	if (room.name === 'Room 46') return roomImgs['room46-n.png'];
+	if (room.name === 'Tunnel') return roomImgs['tunnel-n.png'];
 	if (room.name === 'Chamber of Mirrors' && direction === 'n') return roomImgs['chamberofmirrors-4.png'];
 	if (fourRooms.includes(room.filename)) return roomImgs[room.filename + '-4.png'];
 	// stick-shaped rooms

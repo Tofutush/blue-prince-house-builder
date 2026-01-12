@@ -56,8 +56,11 @@
 	}
 	function selectRandom() {
 		if (!draft.active) return;
+		let prev = draft.monk;
+		draft.monk = true;
 		let filteredRoomList = roomList.filter((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true }).enabled);
 		draftRoom(filteredRoomList[Math.floor(Math.random() * filteredRoomList.length)]);
+		draft.monk = prev;
 	}
 	function deleteRoom(coords: number[]) {
 		house[coords[0]][coords[1]] = null;
