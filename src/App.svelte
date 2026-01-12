@@ -65,6 +65,9 @@
 	function deleteRoom(coords: number[]) {
 		house[coords[0]][coords[1]] = null;
 	}
+	function deleteOuterRoom() {
+		outerRoom = null;
+	}
 
 	// used by directory to rotate rooms and disable rooms while drafting
 	function getDraftingRoom(room: DirRoom) {
@@ -217,7 +220,7 @@
 					<button onclick={importJSON}>Import JSON</button>
 				{/if}
 			</section>
-			<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} />
+			<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} deleteRoom={deleteOuterRoom} />
 		</section>
 		<Directory {draft} draftDone={draftRoom} {draftTemporary} {getDraftingRoom} />
 	{/if}
