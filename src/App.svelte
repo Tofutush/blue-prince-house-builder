@@ -77,12 +77,22 @@
 			return room;
 		}
 		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
-		// special case: veranda
+		// special cases
 		if (room.room.name === 'Veranda') {
 			if (draft.direction === 'e' || draft.direction === 'w') {
 				room.enabled = false;
 				return room;
 			}
+		}
+		if (room.room.name === 'Tunnel') {
+			if (draft.direction !== 'n') {
+				room.enabled = false;
+				return room;
+			}
+		}
+		if (room.room.outer) {
+			room.enabled = false;
+			return room;
 		}
 		let realDoors = rotateDoors(room.room, draft.direction);
 		// if any one door leads out of bounds, disable

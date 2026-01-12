@@ -951,5 +951,271 @@
     "doors": [
       "s"
     ]
+  },
+  {
+    "name": "Dovecote",
+    "filename": "dovecote",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "The Kennel",
+    "filename": "thekennel",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Clock Tower",
+    "filename": "clocktower",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Classroom",
+    "filename": "classroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Solarium",
+    "filename": "solarium",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Dormitory",
+    "filename": "dormitory",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Vestibule",
+    "filename": "vestibule",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Casino",
+    "filename": "casino",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Planetarium",
+    "filename": "planetarium",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Mechanarium",
+    "filename": "mechanarium",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Treasure Trove",
+    "filename": "treasuretrove",
+    "color": [
+      "black"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Throne Room",
+    "filename": "throneroom",
+    "color": [
+      "black"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Tunnel",
+    "filename": "tunnel",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Conservatory",
+    "filename": "conservatory",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Lost & Found",
+    "filename": "lost&found",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Closed Exhibit",
+    "filename": "closedexhibit",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Toolshed",
+    "filename": "toolshed",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ],
+    "outer": true
+  },
+  {
+    "name": "Shelter",
+    "filename": "shelter",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ],
+    "outer": true
+  },
+  {
+    "name": "Schoolhouse",
+    "filename": "schoolhouse",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ],
+    "outer": true
+  },
+  {
+    "name": "Shrine",
+    "filename": "shrine",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ],
+    "outer": true
+  },
+  {
+    "name": "Root Cellar",
+    "filename": "rootcellar",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s"
+    ],
+    "outer": true
+  },
+  {
+    "name": "Hovel",
+    "filename": "hovel",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ],
+    "outer": true
+  },
+  {
+    "name": "Trading Post",
+    "filename": "tradingpost",
+    "color": [
+      "gold"
+    ],
+    "doors": [
+      "s"
+    ],
+    "outer": true
+  },
+  {
+    "name": "Tomb",
+    "filename": "tomb",
+    "color": [
+      "black"
+    ],
+    "doors": [
+      "s"
+    ],
+    "outer": true
   }
 ]

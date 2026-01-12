@@ -23,7 +23,8 @@ const fourRooms = [
 	"cloister",
 	"archives",
 	"entrancehall",
-	"weightroom"
+	"weightroom",
+	"vestibule"
 ];
 
 export function getRoomImg(room: RoomData, direction: Direction) {
