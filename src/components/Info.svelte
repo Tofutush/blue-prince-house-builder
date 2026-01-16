@@ -10,10 +10,11 @@
 	<p>Not affiliated with the devs or publisher or anyone. Made for educational purposes.</p>
 	<p><strong>Spoilers for Blue Prince will be present, as I've listed every single room, found floorplan, studio addition, and upgrade in here!</strong></p>
 	<p>You can try not clicking into these categories though.</p>
-	<p>This is <string>not very mobile-friendly</string>. Though it's not unusable on mobile, I still recommend browsing on PC.</p>
+	<p>This is <string>not mobile-friendly</string>. I tried so it doesn't look horrendous, but it's still meant to be browsed on PC.</p>
 	<p>Images may take a while to load.</p>
-	<p>And… yes, you can delete the Antechamber and Entrance Hall. Rooms also have no drafting constraints other than no path going outside the house, also you can't rotate floorplans, because I got tired of writing all this code. So go wild. If you're stuck, <strong>refreshing will completely erase your progress</strong>.</p>
+	<p>And… yes, you can delete the Antechamber and Entrance Hall. Rooms also have no drafting constraints other than no path going outside the house. So go wild. If you're stuck, <strong>refreshing will completely erase your progress</strong>.</p>
 	<p>If you're ready to proceed, click the button below.</p>
+	<p><a href="https://tofutush.leprd.space/guestbook/">Message me about bugs!</a> Paste a Filegarden (or whatever image host that's not Discord) link in there for screenshots if needed.</p>
 	<button onclick={proceed}>Proceed</button>
 </section>
 

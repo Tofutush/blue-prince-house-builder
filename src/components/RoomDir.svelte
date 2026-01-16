@@ -43,7 +43,7 @@
 	}
 </script>
 
-<div>
+<div class="room">
 	{#if draft.active && !draft.outer}
 		<button class="rotate" onclick={rotate}>Rotate</button>
 	{/if}
@@ -57,8 +57,17 @@
 </div>
 
 <style>
+	.room {
+		position: relative;
+	}
 	.draft {
 		all: unset;
+	}
+	.rotate {
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		cursor: pointer;
 	}
 	img {
 		width: 100%;
