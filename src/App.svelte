@@ -37,17 +37,17 @@
 		draft.active = true;
 		draft.outer = true;
 	}
-	function draftRoom(room: DirRoom) {
-		if (draft.outer) outerRoom = room.room;
-		else placeRoom({ room: room.room, direction: room.direction as Direction, coords: [draft.coords[0], draft.coords[1]] });
+	function draftRoom(room: RoomData, direction: Direction) {
+		if (draft.outer) outerRoom = room;
+		else placeRoom({ room: room, direction: direction as Direction, coords: [draft.coords[0], draft.coords[1]] });
 		stopDrafting();
 	}
-	function draftTemporary(room: DirRoom | null) {
+	function draftTemporary(room: RoomData | null, direction: Direction) {
 		if (room == null) {
 			house[draft.coords[0]][draft.coords[1]] = null;
 			return;
 		}
-		placeRoom({ room: room.room, direction: room.direction as Direction, coords: [draft.coords[0], draft.coords[1]], temporary: true });
+		placeRoom({ room: room, direction: direction as Direction, coords: [draft.coords[0], draft.coords[1]], temporary: true });
 	}
 	function stopDrafting() {
 		draft.active = false;
@@ -59,8 +59,8 @@
 		if (!draft.active) return;
 		let prev = draft.monk;
 		draft.monk = true;
-		let filteredRoomList = roomList.map((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true })).filter((r) => r.enabled);
-		draftRoom(filteredRoomList[Math.floor(Math.random() * filteredRoomList.length)]);
+		let filteredRoomList = roomList.filter((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true }).enabled);
+		draftRoom(filteredRoomList[Math.floor(Math.random() * filteredRoomList.length)], draft.direction as Direction);
 		draft.monk = prev;
 	}
 	function deleteRoom(coords: number[]) {
@@ -71,7 +71,7 @@
 	}
 
 	// used by RoomDir to determine whether a room is enabled when drafting
-	function getEnabled(room: DirRoom) {
+	function getEnabled(room: DirRoom, direction: Direction) {
 		if (!draft.active) throw new Error('drafting not in progress!');
 		if (draft.outer) {
 			if (draft.monk) return true;
@@ -84,7 +84,9 @@
 		if ((room.room.name === 'Veranda' || room.room.name === 'Tunnel') && (draft.direction === 'e' || draft.direction === 'w')) return false;
 		if (room.room.outer) return false;
 		// check doors
-		let realDoors = rotateDoors(room.room, room.direction);
+		let realDoors = rotateDoors(room.room, direction);
+		console.log(realDoors, direction);
+
 		for (let z = 0; z < realDoors.length; z++) {
 			let coords: number[] = [];
 			if (realDoors[z] === 'e') coords = [draft.coords[0], draft.coords[1] + 1];
@@ -249,7 +251,7 @@
 			</section>
 			<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} deleteRoom={deleteOuterRoom} />
 		</section>
-		<Directory {draft} draftDone={draftRoom} {draftTemporary} {getDraftingRoom} {getEnabled} draftDirection={draft.direction} />
+		<Directory {draft} draftDone={draftRoom} {draftTemporary} {getDraftingRoom} {getEnabled} />
 	{/if}
 </main>
 

@@ -5,13 +5,12 @@
 
 	type Args = {
 		draft: draftType;
-		draftDone: (room: DirRoom) => void;
-		draftTemporary: (room: DirRoom | null) => void;
+		draftDone: (room: RoomData, direction: Direction) => void;
+		draftTemporary: (room: RoomData | null, direction: Direction) => void;
 		getDraftingRoom: (room: DirRoom) => DirRoom;
-		getEnabled: (room: DirRoom) => boolean;
-		draftDirection: Direction | null;
+		getEnabled: (room: DirRoom, direction: Direction) => boolean;
 	};
-	let { draft, draftDone, draftTemporary, getDraftingRoom, getEnabled, draftDirection }: Args = $props();
+	let { draft, draftDone, draftTemporary, getDraftingRoom, getEnabled }: Args = $props();
 </script>
 
 <section id="directory">
@@ -19,7 +18,7 @@
 		<summary>Rooms 1 - 12</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(0, 12) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -27,7 +26,7 @@
 		<summary>Rooms 13 - 24</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(12, 24) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -35,7 +34,7 @@
 		<summary>Rooms 25 - 36</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(24, 36) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -43,7 +42,7 @@
 		<summary>Rooms 37 - 46</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(36, 46) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -51,7 +50,7 @@
 		<summary>Bedrooms</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(46, 54) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -59,7 +58,7 @@
 		<summary>Hallways</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(54, 62) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -67,7 +66,7 @@
 		<summary>Green Rooms</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(62, 70) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -75,7 +74,7 @@
 		<summary>Shops</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(70, 78) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -83,7 +82,7 @@
 		<summary>Red Rooms</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(78, 86) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -91,7 +90,7 @@
 		<summary>Studio Additions</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(86, 94) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -99,7 +98,7 @@
 		<summary>Found Floorplans</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(94, 102) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -107,7 +106,7 @@
 		<summary>Outer Rooms</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(102, 110) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>
@@ -116,7 +115,7 @@
 		<summary>Upgraded Rooms</summary>
 		<div class="dir-rooms">
 			{#each roomList.slice(0, 12) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {draftDirection} {room} />
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
 	</details>

@@ -5,32 +5,41 @@
 	type Args = {
 		room: RoomData;
 		draft: draftType;
-		draftDone: (room: DirRoom) => void;
-		draftTemporary: (room: DirRoom | null) => void;
-		getEnabled: (room: DirRoom) => boolean;
-		draftDirection: Direction | null;
+		draftDone: (room: RoomData, direction: Direction) => void;
+		draftTemporary: (room: RoomData | null, direction: Direction) => void;
+		getEnabled: (room: DirRoom, direction: Direction) => boolean;
 	};
-	let { room, draft, draftDone, draftTemporary, getEnabled, draftDirection }: Args = $props();
+	let { room, draft, draftDone, draftTemporary, getEnabled }: Args = $props();
 
-	let direction: Direction = $state(draftDirection || 'n');
-	let dirRoom: DirRoom = $state({ room: room, direction: direction, enabled: true });
+	function getDirection(): Direction {
+		if (!draft.active) return 'n';
+		console.log('1');
+
+		if (direction !== null) return direction;
+		console.log('2');
+
+		return draft.direction ?? 'n';
+	}
+	let direction: Direction | null = $state(null);
+	let dirRoom: DirRoom = $state({ room: room, direction: 'n', enabled: true });
 
 	function selected() {
-		if (!draft.active || !getEnabled(dirRoom)) return;
-		draftDone(dirRoom);
+		if (!draft.active || !getEnabled(dirRoom, getDirection())) return;
+		draftDone(room, getDirection());
+		direction = null;
 	}
 	function hovered() {
-		if (!draft.active || !getEnabled(dirRoom) || draft.outer) return;
-		draftTemporary(dirRoom);
+		if (!draft.active || !getEnabled(dirRoom, getDirection()) || draft.outer) return;
+		draftTemporary(room, getDirection());
 	}
 	function exited() {
-		if (!draft.active || !getEnabled(dirRoom) || draft.outer) return;
-		draftTemporary(null);
+		if (!draft.active || !getEnabled(dirRoom, getDirection()) || draft.outer) return;
+		draftTemporary(null, 'n');
 	}
 	function rotate() {
 		const order: Direction[] = ['n', 'e', 's', 'w'];
-		dirRoom.direction = order[(order.indexOf(dirRoom.direction) + 1) % 4];
-		console.log(dirRoom);
+		direction = order[(order.indexOf(getDirection()) + 1) % 4];
+		dirRoom.direction = direction;
 	}
 </script>
 
@@ -40,7 +49,7 @@
 	{/if}
 	<button class="draft" onclick={selected} onmouseenter={hovered} onmouseleave={exited}>
 		{#if draft.active}
-			<img src={getRoomImg(dirRoom.room, dirRoom.direction)} alt={dirRoom.room.name} title={dirRoom.room.name} class={getEnabled(dirRoom) ? 'active' : 'disabled'} />
+			<img aria-label={getDirection()} src={getRoomImg(dirRoom.room, getDirection())} alt={dirRoom.room.name} title={dirRoom.room.name} class={getEnabled(dirRoom, getDirection()) ? 'active' : 'disabled'} />
 		{:else}
 			<img src={getRoomImg(dirRoom.room, 'n')} alt={dirRoom.room.name} title={dirRoom.room.name} />
 		{/if}

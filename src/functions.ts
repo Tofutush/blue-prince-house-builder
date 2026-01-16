@@ -28,8 +28,6 @@ const fourRooms = [
 ];
 
 export function getRoomImg(room: RoomData, direction: Direction) {
-	console.log(direction);
-
 	if (!room.filename) throw new Error('no filename');
 	// special rooms
 	if (room.name === 'Antechamber') return roomImgs['antechamber.png'];
