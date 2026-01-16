@@ -14,12 +14,6 @@ export type PlacedRoom = {
 	temporary?: boolean
 }
 
-export type DirRoom = {
-	room: RoomData,
-	direction: Direction,
-	enabled: boolean
-}
-
 export type draftType = {
 	active: boolean,
 	coords: number[],

@@ -12,7 +12,7 @@
 	<p>You can try not clicking into these categories though.</p>
 	<p>This is <string>not mobile-friendly</string>. I tried so it doesn't look horrendous, but it's still meant to be browsed on PC.</p>
 	<p>Images may take a while to load.</p>
-	<p>And… yes, you can delete the Antechamber and Entrance Hall. Rooms also have no drafting constraints other than no path going outside the house. So go wild. If you're stuck, <strong>refreshing will completely erase your progress</strong>.</p>
+	<p>And… yes, you can delete the Antechamber and Entrance Hall. I won't let you draft them back though. Rooms also have no drafting constraints other than no path going outside the house. So go wild. If you're stuck, <strong>refreshing will completely erase your progress</strong>.</p>
 	<p>If you're ready to proceed, click the button below.</p>
 	<p><a href="https://tofutush.leprd.space/guestbook/">Message me about bugs!</a> Paste a Filegarden (or whatever image host that's not Discord) link in there for screenshots if needed.</p>
 	<button onclick={proceed}>Proceed</button>

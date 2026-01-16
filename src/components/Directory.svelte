@@ -1,16 +1,15 @@
 <script lang="ts">
 	import { roomList } from '../functions';
-	import type { DirRoom, draftType, RoomData, Direction } from '../types';
+	import type { Direction, draftType, RoomData } from '../types';
 	import RoomDir from './RoomDir.svelte';
 
 	type Args = {
 		draft: draftType;
 		draftDone: (room: RoomData, direction: Direction) => void;
 		draftTemporary: (room: RoomData | null, direction: Direction) => void;
-		getDraftingRoom: (room: DirRoom) => DirRoom;
-		getEnabled: (room: DirRoom, direction: Direction) => boolean;
+		getEnabled: (room: RoomData, direction: Direction) => boolean;
 	};
-	let { draft, draftDone, draftTemporary, getDraftingRoom, getEnabled }: Args = $props();
+	let { draft, draftDone, draftTemporary, getEnabled }: Args = $props();
 </script>
 
 <section id="directory">

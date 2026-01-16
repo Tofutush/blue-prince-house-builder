@@ -5,8 +5,7 @@
 	import Info from './components/Info.svelte';
 	import OuterRoom from './components/OuterRoom.svelte';
 	import { getOppositeDirection, getRoom, roomList, rotateDoors } from './functions';
-	import type { Direction, DirRoom, draftType, PlacedRoom, RoomData } from './types';
-	import RoomDir from './components/RoomDir.svelte';
+	import type { Direction, draftType, PlacedRoom, RoomData } from './types';
 
 	let draft: draftType = $state({
 		active: false,
@@ -59,7 +58,7 @@
 		if (!draft.active) return;
 		let prev = draft.monk;
 		draft.monk = true;
-		let filteredRoomList = roomList.filter((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true }).enabled);
+		let filteredRoomList = roomList.filter((r) => getEnabled(r, draft.direction as Direction));
 		draftRoom(filteredRoomList[Math.floor(Math.random() * filteredRoomList.length)], draft.direction as Direction);
 		draft.monk = prev;
 	}
@@ -71,20 +70,20 @@
 	}
 
 	// used by RoomDir to determine whether a room is enabled when drafting
-	function getEnabled(room: DirRoom, direction: Direction) {
+	function getEnabled(room: RoomData, direction: Direction) {
 		if (!draft.active) throw new Error('drafting not in progress!');
 		if (draft.outer) {
 			if (draft.monk) return true;
-			if (room.room.outer) return true;
+			if (room.outer) return true;
 			return false;
 		}
 		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
 		// special case
-		if (room.room.name === 'Entrance Hall' || room.room.name === 'The Antechamber' || room.room.name === 'Room 46') return false;
-		if ((room.room.name === 'Veranda' || room.room.name === 'Tunnel') && (draft.direction === 'e' || draft.direction === 'w')) return false;
-		if (room.room.outer) return false;
+		if (room.name === 'Entrance Hall' || room.name === 'The Antechamber' || room.name === 'Room 46') return false;
+		if ((room.name === 'Veranda' || room.name === 'Tunnel') && (draft.direction === 'e' || draft.direction === 'w')) return false;
+		if (room.outer) return false;
 		// check doors
-		let realDoors = rotateDoors(room.room, direction);
+		let realDoors = rotateDoors(room, direction);
 		console.log(realDoors, direction);
 
 		for (let z = 0; z < realDoors.length; z++) {
@@ -97,55 +96,6 @@
 		}
 		if (!realDoors.includes(getOppositeDirection(draft.direction))) return false;
 		return true;
-	}
-	// used by directory to rotate rooms and disable rooms while drafting
-	function getDraftingRoom(room: DirRoom) {
-		if (!draft.active) throw new Error('drafting not in progress!');
-		if (draft.outer) {
-			room.direction = 'n';
-			if (draft.monk) {
-				room.enabled = true;
-				return room;
-			}
-			if (room.room.outer) room.enabled = true;
-			else room.enabled = false;
-			return room;
-		}
-		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
-		// special cases
-		if (room.room.name === 'Veranda') {
-			if (draft.direction === 'e' || draft.direction === 'w') {
-				room.enabled = false;
-				return room;
-			}
-		}
-		if (room.room.name === 'Tunnel') {
-			if (draft.direction !== 'n') {
-				room.enabled = false;
-				return room;
-			}
-		}
-		if (room.room.outer) {
-			room.enabled = false;
-			return room;
-		}
-		let realDoors = rotateDoors(room.room, draft.direction);
-		// if any one door leads out of bounds, disable
-		let enabled = true;
-		if (room.room.name === 'Entrance Hall' || room.room.name === 'The Antechamber' || room.room.name === 'Room 46') enabled = false;
-		else {
-			for (let z = 0; z < realDoors.length; z++) {
-				let coords: number[] = [];
-				if (realDoors[z] === 'e') coords = [draft.coords[0], draft.coords[1] + 1];
-				else if (realDoors[z] === 'w') coords = [draft.coords[0], draft.coords[1] - 1];
-				else if (realDoors[z] === 'n') coords = [draft.coords[0] - 1, draft.coords[1]];
-				else if (realDoors[z] === 's') coords = [draft.coords[0] + 1, draft.coords[1]];
-				if (coords[0] < 0 || coords[0] > 8 || coords[1] < 0 || coords[1] > 4) enabled = false;
-			}
-		}
-		room.direction = draft.direction;
-		room.enabled = enabled;
-		return room;
 	}
 
 	function exportJSON() {
@@ -251,7 +201,7 @@
 			</section>
 			<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} deleteRoom={deleteOuterRoom} />
 		</section>
-		<Directory {draft} draftDone={draftRoom} {draftTemporary} {getDraftingRoom} {getEnabled} />
+		<Directory {draft} draftDone={draftRoom} {draftTemporary} {getEnabled} />
 	{/if}
 </main>
 
