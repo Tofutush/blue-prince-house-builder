@@ -1,39 +1,54 @@
 <script lang="ts">
 	import { getRoomImg } from '../functions';
-	import type { DirRoom, draftType, RoomData } from '../types';
+	import type { Direction, DirRoom, draftType, RoomData } from '../types';
 
 	type Args = {
-		room: DirRoom;
+		room: RoomData;
 		draft: draftType;
-		draftDone: (room: RoomData) => void;
-		draftTemporary: (room: RoomData | null) => void;
+		draftDone: (room: DirRoom) => void;
+		draftTemporary: (room: DirRoom | null) => void;
+		getEnabled: (room: DirRoom) => boolean;
+		draftDirection: Direction | null;
 	};
-	let { room, draft, draftDone, draftTemporary }: Args = $props();
+	let { room, draft, draftDone, draftTemporary, getEnabled, draftDirection }: Args = $props();
+
+	let direction: Direction = $state(draftDirection || 'n');
+	let dirRoom: DirRoom = $state({ room: room, direction: direction, enabled: true });
 
 	function selected() {
-		if (!draft.active || !room.enabled) return;
-		draftDone(room.room);
+		if (!draft.active || !getEnabled(dirRoom)) return;
+		draftDone(dirRoom);
 	}
 	function hovered() {
-		if (!draft.active || !room.enabled || draft.outer) return;
-		draftTemporary(room.room);
+		if (!draft.active || !getEnabled(dirRoom) || draft.outer) return;
+		draftTemporary(dirRoom);
 	}
 	function exited() {
-		if (!draft.active || !room.enabled || draft.outer) return;
+		if (!draft.active || !getEnabled(dirRoom) || draft.outer) return;
 		draftTemporary(null);
+	}
+	function rotate() {
+		const order: Direction[] = ['n', 'e', 's', 'w'];
+		dirRoom.direction = order[(order.indexOf(dirRoom.direction) + 1) % 4];
+		console.log(dirRoom);
 	}
 </script>
 
-<button onclick={selected} onmouseenter={hovered} onmouseleave={exited}>
-	{#if draft.active}
-		<img src={getRoomImg(room.room, room.direction)} alt={room.room.name} title={room.room.name} class={room.enabled ? 'active' : 'disabled'} />
-	{:else}
-		<img src={getRoomImg(room.room, 'n')} alt={room.room.name} title={room.room.name} />
+<div>
+	{#if draft.active && !draft.outer}
+		<button class="rotate" onclick={rotate}>Rotate</button>
 	{/if}
-</button>
+	<button class="draft" onclick={selected} onmouseenter={hovered} onmouseleave={exited}>
+		{#if draft.active}
+			<img src={getRoomImg(dirRoom.room, dirRoom.direction)} alt={dirRoom.room.name} title={dirRoom.room.name} class={getEnabled(dirRoom) ? 'active' : 'disabled'} />
+		{:else}
+			<img src={getRoomImg(dirRoom.room, 'n')} alt={dirRoom.room.name} title={dirRoom.room.name} />
+		{/if}
+	</button>
+</div>
 
 <style>
-	button {
+	.draft {
 		all: unset;
 	}
 	img {

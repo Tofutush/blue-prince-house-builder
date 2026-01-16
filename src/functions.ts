@@ -28,6 +28,8 @@ const fourRooms = [
 ];
 
 export function getRoomImg(room: RoomData, direction: Direction) {
+	console.log(direction);
+
 	if (!room.filename) throw new Error('no filename');
 	// special rooms
 	if (room.name === 'Antechamber') return roomImgs['antechamber.png'];
@@ -62,4 +64,11 @@ export function rotateDoors(room: RoomData, direction: Direction) {
 		newDoors.push(directions[(directions.indexOf(room.doors[z]) + index) % 4])
 	}
 	return newDoors;
+}
+export function getOppositeDirection(d: Direction): Direction {
+	if (d === 'e') return 'w';
+	if (d === 'n') return 's';
+	if (d === 's') return 'n';
+	if (d === 'w') return 'e';
+	throw new Error(`direction ${d} does not exist!`);
 }

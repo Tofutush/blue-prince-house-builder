@@ -4,8 +4,9 @@
 	import House from './components/House.svelte';
 	import Info from './components/Info.svelte';
 	import OuterRoom from './components/OuterRoom.svelte';
-	import { getRoom, roomList, rotateDoors } from './functions';
+	import { getOppositeDirection, getRoom, roomList, rotateDoors } from './functions';
 	import type { Direction, DirRoom, draftType, PlacedRoom, RoomData } from './types';
+	import RoomDir from './components/RoomDir.svelte';
 
 	let draft: draftType = $state({
 		active: false,
@@ -36,17 +37,17 @@
 		draft.active = true;
 		draft.outer = true;
 	}
-	function draftRoom(room: RoomData) {
-		if (draft.outer) outerRoom = room;
-		else placeRoom({ room: room, direction: draft.direction as Direction, coords: [draft.coords[0], draft.coords[1]] });
+	function draftRoom(room: DirRoom) {
+		if (draft.outer) outerRoom = room.room;
+		else placeRoom({ room: room.room, direction: room.direction as Direction, coords: [draft.coords[0], draft.coords[1]] });
 		stopDrafting();
 	}
-	function draftTemporary(room: RoomData | null) {
+	function draftTemporary(room: DirRoom | null) {
 		if (room == null) {
 			house[draft.coords[0]][draft.coords[1]] = null;
 			return;
 		}
-		placeRoom({ room: room, direction: draft.direction as Direction, coords: [draft.coords[0], draft.coords[1]], temporary: true });
+		placeRoom({ room: room.room, direction: room.direction as Direction, coords: [draft.coords[0], draft.coords[1]], temporary: true });
 	}
 	function stopDrafting() {
 		draft.active = false;
@@ -58,7 +59,7 @@
 		if (!draft.active) return;
 		let prev = draft.monk;
 		draft.monk = true;
-		let filteredRoomList = roomList.filter((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true }).enabled);
+		let filteredRoomList = roomList.map((r) => getDraftingRoom({ room: r, direction: draft.direction as Direction, enabled: true })).filter((r) => r.enabled);
 		draftRoom(filteredRoomList[Math.floor(Math.random() * filteredRoomList.length)]);
 		draft.monk = prev;
 	}
@@ -69,6 +70,32 @@
 		outerRoom = null;
 	}
 
+	// used by RoomDir to determine whether a room is enabled when drafting
+	function getEnabled(room: DirRoom) {
+		if (!draft.active) throw new Error('drafting not in progress!');
+		if (draft.outer) {
+			if (draft.monk) return true;
+			if (room.room.outer) return true;
+			return false;
+		}
+		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
+		// special case
+		if (room.room.name === 'Entrance Hall' || room.room.name === 'The Antechamber' || room.room.name === 'Room 46') return false;
+		if ((room.room.name === 'Veranda' || room.room.name === 'Tunnel') && (draft.direction === 'e' || draft.direction === 'w')) return false;
+		if (room.room.outer) return false;
+		// check doors
+		let realDoors = rotateDoors(room.room, room.direction);
+		for (let z = 0; z < realDoors.length; z++) {
+			let coords: number[] = [];
+			if (realDoors[z] === 'e') coords = [draft.coords[0], draft.coords[1] + 1];
+			else if (realDoors[z] === 'w') coords = [draft.coords[0], draft.coords[1] - 1];
+			else if (realDoors[z] === 'n') coords = [draft.coords[0] - 1, draft.coords[1]];
+			else if (realDoors[z] === 's') coords = [draft.coords[0] + 1, draft.coords[1]];
+			if (coords[0] < 0 || coords[0] > 8 || coords[1] < 0 || coords[1] > 4) return false;
+		}
+		if (!realDoors.includes(getOppositeDirection(draft.direction))) return false;
+		return true;
+	}
 	// used by directory to rotate rooms and disable rooms while drafting
 	function getDraftingRoom(room: DirRoom) {
 		if (!draft.active) throw new Error('drafting not in progress!');
@@ -222,7 +249,7 @@
 			</section>
 			<OuterRoom room={outerRoom} {draft} draftStart={initiateDraftOuter} deleteRoom={deleteOuterRoom} />
 		</section>
-		<Directory {draft} draftDone={draftRoom} {draftTemporary} {getDraftingRoom} />
+		<Directory {draft} draftDone={draftRoom} {draftTemporary} {getDraftingRoom} {getEnabled} draftDirection={draft.direction} />
 	{/if}
 </main>
 
