@@ -37,7 +37,15 @@
 	}
 	function rotate() {
 		const order: Direction[] = ['n', 'e', 's', 'w'];
-		direction = order[(order.indexOf(getDirection()) + 1) % 4];
+		let dir = getDirection();
+		// special cases
+		if (room.name === 'Greenhouse' || room.name === 'Veranda') {
+			if (dir === 'w' || dir === 'e') return;
+			else if (dir === 's') direction = 'n';
+			else if (dir === 'n') direction = 's';
+			return;
+		}
+		direction = order[(order.indexOf(dir) + 1) % 4];
 	}
 </script>
 
