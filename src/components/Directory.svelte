@@ -10,9 +10,22 @@
 		getEnabled: (room: RoomData, direction: Direction) => boolean;
 	};
 	let { draft, draftDone, draftTemporary, getEnabled }: Args = $props();
+
+	let details = document.getElementsByClassName('dir-section') as HTMLCollectionOf<HTMLDetailsElement>;
+	function expand() {
+		for (let z = 0; z < details.length; z++) {
+			console.log(details);
+			details[z].open = true;
+		}
+	}
+	function collapse() {
+		for (let z = 0; z < details.length; z++) details[z].open = false;
+	}
 </script>
 
 <section id="directory">
+	<button onclick={expand}>Expand all</button>
+	<button onclick={collapse}>Collapse all</button>
 	<details class="dir-section">
 		<summary>Rooms 1 - 12</summary>
 		<div class="dir-rooms">
