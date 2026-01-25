@@ -1467,5 +1467,35 @@
     "doors": [
       "s"
     ]
+  },
+  {
+    "name": "Storeroom with more keys",
+    "filename": "storeroom-keys",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Storeroom with more gems",
+    "filename": "storeroom-gems",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Storeroom with more gold",
+    "filename": "storeroom-gold",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
   }
 ]
