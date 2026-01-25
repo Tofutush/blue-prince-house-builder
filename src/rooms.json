@@ -474,7 +474,13 @@
     "name": "Aquarium",
     "filename": "aquarium",
     "color": [
-      "blue"
+      "red",
+      "orange",
+      "gold",
+      "green",
+      "blue",
+      "purple",
+      "black"
     ],
     "doors": [
       "s",
@@ -1529,6 +1535,390 @@
     "doors": [
       "s",
       "w"
+    ]
+  },
+  {
+    "name": "Mail Room - Same-Day Delivery",
+    "filename": "mailroom-sameday",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Mail Room - No-Contact Delivery",
+    "filename": "mailroom-nocontact",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Mail Room - Freight Shipping",
+    "filename": "mailroom-freight",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Goldfish Aquarium",
+    "filename": "aquarium-goldfish",
+    "color": [
+      "red",
+      "orange",
+      "gold",
+      "green",
+      "blue",
+      "purple",
+      "black"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Starfish Aquarium",
+    "filename": "aquarium-starfish",
+    "color": [
+      "red",
+      "orange",
+      "gold",
+      "green",
+      "blue",
+      "purple",
+      "black"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Electric Eel Aquarium",
+    "filename": "aquarium-eel",
+    "color": [
+      "red",
+      "orange",
+      "gold",
+      "green",
+      "blue",
+      "purple",
+      "black"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Boudoir, with dice",
+    "filename": "boudoir-par",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Boudoir, with apples",
+    "filename": "boudoir-obs",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Boudoir, with gems",
+    "filename": "boudoir-walk",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Guess Bedroom",
+    "filename": "guestbedroom-guess",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Quest Bedroom",
+    "filename": "guestbedroom-quest",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Guess Bedroom",
+    "filename": "guestbedroom-geist",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Nurse's Station",
+    "filename": "nursesstation",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Indoor Nursery",
+    "filename": "nursery-indoor",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Nursery, more steps",
+    "filename": "nursery-10",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Bunk Room, with keys",
+    "filename": "bunkroom-keys",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Bunk Room, with gems",
+    "filename": "bunkroom-gems",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Bunk Room, with gold",
+    "filename": "bunkroom-gold",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Hallway, with a key",
+    "filename": "hallway-1key",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Hallway, with a trunk",
+    "filename": "hallway-2keys",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Hallway, tomorrow",
+    "filename": "hallway-4keys",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Courtyard, with gems",
+    "filename": "courtyard-gems",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Courtyard, with dig spots",
+    "filename": "courtyard-digs",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Corriyard",
+    "filename": "corriyard",
+    "color": [
+      "green",
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e"
+    ]
+  },
+  {
+    "name": "Cloister of Rynna",
+    "filename": "cloister-of-rynna",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Cloister of Joya",
+    "filename": "cloister-of-joya",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Cloister of Dauja",
+    "filename": "cloister-of-dauja",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Cloister of Veia",
+    "filename": "cloister-of-veia",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Cloister of Mila",
+    "filename": "cloister-of-mila",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Cloister of Lydia",
+    "filename": "cloister-of-lydia",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Cloister of Orinda",
+    "filename": "cloister-of-orinda",
+    "color": [
+      "black"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
+    ]
+  },
+  {
+    "name": "Cloister of Draxus",
+    "filename": "cloister-of-draxus",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w",
+      "e",
+      "n"
     ]
   }
 ]

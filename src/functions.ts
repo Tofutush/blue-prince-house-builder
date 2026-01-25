@@ -20,7 +20,6 @@ const specialSticks = [
 ];
 const fourRooms = [
 	"passageway",
-	"cloister",
 	"archives",
 	"entrancehall",
 	"weightroom",
@@ -34,6 +33,10 @@ export function getRoomImg(room: RoomData, direction: Direction) {
 	if (room.name === 'Room 46') return roomImgs['room46-n.png'];
 	if (room.name === 'Tunnel') return roomImgs['tunnel-n.png'];
 	if (room.name === 'Chamber of Mirrors' && direction === 'n') return roomImgs['chamberofmirrors-4.png'];
+	if (room.name.startsWith('Cloister')) {
+		if (room.name === 'Cloister') return roomImgs['cloister-4.png'];
+		return roomImgs[room.filename + '.png'];
+	}
 	if (fourRooms.includes(room.filename)) return roomImgs[room.filename + '-4.png'];
 	// north and south only	
 	if ((room.name === 'Greenhouse' || room.name === 'Veranda') && (direction === 'e' || direction === 'w')) return roomImgs[room.filename + '-n.png'];

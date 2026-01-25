@@ -172,6 +172,78 @@
 				{/each}
 			</div>
 		</details>
+		<details class="dir-section">
+			<summary>Mail Room</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(139, 142) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Aquarium</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(142, 145) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Boudoir</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(145, 148) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Guest Bedroom</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(148, 151) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Nursery</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(151, 154) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Bunk Room</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(154, 157) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Hallway</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(157, 160) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Courtyard</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(160, 163) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Cloister</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(163, 171) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
 	</details>
 </section>
 
