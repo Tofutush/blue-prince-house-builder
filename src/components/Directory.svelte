@@ -164,6 +164,14 @@
 				{/each}
 			</div>
 		</details>
+		<details class="dir-section">
+			<summary>Nook</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(136, 139) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
 	</details>
 </section>
 

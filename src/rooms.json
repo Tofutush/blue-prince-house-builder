@@ -1497,5 +1497,38 @@
     "doors": [
       "s"
     ]
+  },
+  {
+    "name": "Nook, 2 keys",
+    "filename": "nook-2keys",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Breakfast Nook",
+    "filename": "nook-breakfast",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Reading Nook",
+    "filename": "nook-reading",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
   }
 ]
