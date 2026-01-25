@@ -35,11 +35,15 @@ export function getRoomImg(room: RoomData, direction: Direction) {
 	if (room.name === 'Tunnel') return roomImgs['tunnel-n.png'];
 	if (room.name === 'Chamber of Mirrors' && direction === 'n') return roomImgs['chamberofmirrors-4.png'];
 	if (fourRooms.includes(room.filename)) return roomImgs[room.filename + '-4.png'];
+	// north and south only	
+	if ((room.name === 'Greenhouse' || room.name === 'Veranda') && (direction === 'e' || direction === 'w')) return roomImgs[room.filename + '-n.png'];
 	// stick-shaped rooms
 	if (room.doors.length === 2 && room.doors.includes('n') && room.doors.includes('s') && !specialSticks.includes(room.filename)) {
 		if (direction === 'n' || direction === 's') return roomImgs[room.filename + '-ns.png'];
 		else return roomImgs[room.filename + '-ew.png'];
 	}
+	// outer rooms
+	if (room.outer) return roomImgs[room.filename + '-n.png'];
 	// all the others
 	return roomImgs[`${room.filename}-${direction}.png`];
 }
