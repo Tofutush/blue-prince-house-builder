@@ -109,14 +109,40 @@
 			{/each}
 		</div>
 	</details>
-
 	<details class="dir-section">
 		<summary>Upgraded Rooms</summary>
-		<div class="dir-rooms">
-			{#each roomList.slice(0, 12) as room}
-				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
-			{/each}
-		</div>
+		<details class="dir-section">
+			<summary>Spare Room</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(110, 122) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Parlor</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(122, 125) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Billiard Room</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(125, 130) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Closet</summary>
+			<div class="dir-rooms">
+				{#each roomList.slice(130, 133) as room}
+					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
+				{/each}
+			</div>
+		</details>
 	</details>
 </section>
 
@@ -127,7 +153,7 @@
 		overflow-y: scroll;
 	}
 	details {
-		margin: 1em 0;
+		margin: 1em;
 		&:first-child {
 			margin-top: 0;
 		}

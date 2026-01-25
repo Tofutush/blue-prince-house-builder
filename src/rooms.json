@@ -1217,5 +1217,255 @@
       "s"
     ],
     "outer": true
+  },
+  {
+    "name": "Spare Bedroom",
+    "filename": "sparebedroom",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Servant's Spare Quarters",
+    "filename": "spareroom-servants",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Her Ladyship's Spare Room",
+    "filename": "spareroom-ladyships",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Master Bedroom",
+    "filename": "spareroom-master",
+    "color": [
+      "purple"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Green Room",
+    "filename": "sparegreenroom",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Veranda",
+    "filename": "spareroom-veranda",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Terrace",
+    "filename": "spareroom-terrace",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Patio",
+    "filename": "spareroom-patio",
+    "color": [
+      "green"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Hall",
+    "filename": "sparehall",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Foyer",
+    "filename": "spareroom-foyer",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Secret Passage",
+    "filename": "spareroom-secret",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Spare Great Hall",
+    "filename": "spareroom-greathall",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "n"
+    ]
+  },
+  {
+    "name": "Parlor, 3 gems",
+    "filename": "parlor-3gems",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Parlor, 2 wind-up keys",
+    "filename": "parlor-windup",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Funeral Parlor",
+    "filename": "parlor-funeral",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Speakeasy",
+    "filename": "billiardroom-speakeasy",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Break Room",
+    "filename": "billiardroom-breakroom",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Pool Hall A",
+    "filename": "billiardroom-poolhallA",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Pool Hall B",
+    "filename": "billiardroom-poolhallB",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Pool Hall C",
+    "filename": "billiardroom-poolhallC",
+    "color": [
+      "orange"
+    ],
+    "doors": [
+      "s",
+      "w"
+    ]
+  },
+  {
+    "name": "Hallway Closet",
+    "filename": "closet-hall",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Bedroom Closet",
+    "filename": "closet-bed",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
+    ]
+  },
+  {
+    "name": "Empty Closet",
+    "filename": "closet-empty",
+    "color": [
+      "red"
+    ],
+    "doors": [
+      "s"
+    ]
   }
 ]
