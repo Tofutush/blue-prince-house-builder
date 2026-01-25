@@ -84,8 +84,6 @@
 		if (room.outer) return false;
 		// check doors
 		let realDoors = rotateDoors(room, direction);
-		console.log(realDoors, direction);
-
 		for (let z = 0; z < realDoors.length; z++) {
 			let coords: number[] = [];
 			if (realDoors[z] === 'e') coords = [draft.coords[0], draft.coords[1] + 1];

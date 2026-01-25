@@ -13,11 +13,7 @@
 
 	function getDirection(): Direction {
 		if (!draft.active) return 'n';
-		console.log('1');
-
 		if (direction !== null) return direction;
-		console.log('2');
-
 		return draft.direction ?? 'n';
 	}
 	let direction: Direction | null = $state(null);

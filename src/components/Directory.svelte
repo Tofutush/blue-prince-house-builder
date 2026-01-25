@@ -13,10 +13,7 @@
 
 	let details = document.getElementsByClassName('dir-section') as HTMLCollectionOf<HTMLDetailsElement>;
 	function expand() {
-		for (let z = 0; z < details.length; z++) {
-			console.log(details);
-			details[z].open = true;
-		}
+		for (let z = 0; z < details.length; z++) details[z].open = true;
 	}
 	function collapse() {
 		for (let z = 0; z < details.length; z++) details[z].open = false;
