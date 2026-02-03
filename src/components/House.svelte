@@ -45,11 +45,13 @@
 		background-color: #617694;
 		width: fit-content;
 		padding: 2px;
-		margin: 1em;
+		height: 100%;
 
 		& > .room {
 			aspect-ratio: 1;
 			background-color: #40649c;
+			height: 100%;
+			width: 100%;
 			min-width: 0;
 			min-height: 0;
 			box-shadow: inset 0 0 0 2px #617694;

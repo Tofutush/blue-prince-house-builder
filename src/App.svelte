@@ -205,8 +205,11 @@
 
 <style>
 	main {
+		height: 100%;
+		padding: 1em;
 		display: flex;
 		align-items: stretch;
+		gap: 1em;
 	}
 	#middle {
 		display: flex;
