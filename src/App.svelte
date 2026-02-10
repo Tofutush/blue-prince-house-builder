@@ -140,7 +140,6 @@
 		side.append(houseEl, outerEl);
 
 		houseEl.style.width = '400px';
-		houseEl.style.margin = '0';
 		outerEl.style.alignSelf = 'end';
 		outerEl.style.marginLeft = '1em';
 
@@ -156,7 +155,6 @@
 		document.getElementById('middle')?.appendChild(outerEl);
 
 		houseEl.style.width = 'fit-content';
-		houseEl.style.margin = '1em';
 		outerEl.style.alignSelf = '';
 		outerEl.style.marginLeft = '';
 
