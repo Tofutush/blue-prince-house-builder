@@ -19,5 +19,6 @@ export type draftType = {
 	coords: number[],
 	direction: Direction | null,
 	outer?: boolean,
-	monk: boolean
+	monk: boolean,
+	strict: boolean
 }

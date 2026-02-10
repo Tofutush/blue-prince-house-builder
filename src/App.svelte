@@ -12,6 +12,7 @@
 		coords: [0, 0],
 		direction: null as Direction | null,
 		monk: false,
+		strict: true,
 	});
 
 	let outerRoom: RoomData | null = $state(null);
@@ -78,6 +79,7 @@
 			return false;
 		}
 		if (!(draft.coords && draft.direction)) throw new Error('missing draft args!!');
+		if (!draft.strict) return true;
 		// special case
 		if (room.name === 'Entrance Hall' || room.name === 'The Antechamber' || room.name === 'Room 46') return false;
 		if ((room.name === 'Greenhouse' || room.name === 'Veranda' || room.name === 'Tunnel') && (draft.direction === 'e' || draft.direction === 'w')) return false;
@@ -190,7 +192,8 @@
 					<p>(Selects a draftable room at random.)</p>
 				{:else}
 					<button onclick={() => (infoShown = true)}>Show info</button>
-					<label><input type="checkbox" bind:checked={draft.monk} />Blessing of the Monk (draft any room as the Outer Room)</label>
+					<p><label><input type="checkbox" bind:checked={draft.monk} />Blessing of the Monk (draft any room as the Outer Room)</label></p>
+					<p><label><input type="checkbox" bind:checked={draft.strict} />Strict rules (no path outside house, doors must connect)</label></p>
 					<button onclick={exportPNG}>Generate PNG</button>
 					<button onclick={exportJSON}>Export JSON</button>
 					<input type="file" accept="application/json" multiple={false} id="import" />

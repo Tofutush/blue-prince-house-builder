@@ -12,7 +12,9 @@
 	let { house, draft, draftStart, deleteRoom }: Args = $props();
 
 	function getDraftables(room: PlacedRoom) {
-		let realDoors = rotateDoors(room.room, room.direction);
+		let realDoors: Direction[];
+		if (draft.strict) realDoors = rotateDoors(room.room, room.direction);
+		else realDoors = ['n', 's', 'e', 'w'];
 		return realDoors.filter((d) => {
 			let coords: number[] = [];
 			if (d === 'e') coords = [room.coords[0], room.coords[1] + 1];
