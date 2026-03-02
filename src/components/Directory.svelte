@@ -124,7 +124,7 @@
 		<details class="dir-section">
 			<summary>Spare Room</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(110, 122) as room}
+				{#each roomList.slice(111, 123) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -132,7 +132,7 @@
 		<details class="dir-section">
 			<summary>Parlor</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(122, 125) as room}
+				{#each roomList.slice(123, 126) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -140,7 +140,7 @@
 		<details class="dir-section">
 			<summary>Billiard Room</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(125, 130) as room}
+				{#each roomList.slice(126, 131) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -148,7 +148,7 @@
 		<details class="dir-section">
 			<summary>Closet</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(130, 133) as room}
+				{#each roomList.slice(131, 134) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -156,7 +156,7 @@
 		<details class="dir-section">
 			<summary>Storeroom</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(133, 136) as room}
+				{#each roomList.slice(134, 137) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -164,7 +164,7 @@
 		<details class="dir-section">
 			<summary>Nook</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(136, 139) as room}
+				{#each roomList.slice(137, 140) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -172,7 +172,7 @@
 		<details class="dir-section">
 			<summary>Mail Room</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(139, 142) as room}
+				{#each roomList.slice(140, 143) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -180,7 +180,7 @@
 		<details class="dir-section">
 			<summary>Aquarium</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(142, 145) as room}
+				{#each roomList.slice(143, 146) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -188,7 +188,7 @@
 		<details class="dir-section">
 			<summary>Boudoir</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(145, 148) as room}
+				{#each roomList.slice(146, 149) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -196,7 +196,7 @@
 		<details class="dir-section">
 			<summary>Guest Bedroom</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(148, 151) as room}
+				{#each roomList.slice(149, 152) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -204,7 +204,7 @@
 		<details class="dir-section">
 			<summary>Nursery</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(151, 154) as room}
+				{#each roomList.slice(152, 155) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -212,7 +212,7 @@
 		<details class="dir-section">
 			<summary>Bunk Room</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(154, 157) as room}
+				{#each roomList.slice(155, 158) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -220,7 +220,7 @@
 		<details class="dir-section">
 			<summary>Hallway</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(157, 160) as room}
+				{#each roomList.slice(158, 161) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -228,7 +228,7 @@
 		<details class="dir-section">
 			<summary>Courtyard</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(160, 163) as room}
+				{#each roomList.slice(161, 164) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
 			</div>
@@ -236,9 +236,15 @@
 		<details class="dir-section">
 			<summary>Cloister</summary>
 			<div class="dir-rooms">
-				{#each roomList.slice(163, 171) as room}
+				{#each roomList.slice(164, 172) as room}
 					<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 				{/each}
+			</div>
+		</details>
+		<details class="dir-section">
+			<summary>Super spoilers secret upgrade!</summary>
+			<div class="dir-rooms">
+				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} room={roomList[172]} />
 			</div>
 		</details>
 	</details>

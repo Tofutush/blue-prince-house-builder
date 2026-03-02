@@ -1932,5 +1932,17 @@
       "e",
       "n"
     ]
+  },
+  {
+    "name": "Throne of the Blue Prince",
+    "filename": "throneroom-b",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "w",
+      "e",
+      "s"
+    ]
   }
 ]
