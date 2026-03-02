@@ -42,7 +42,9 @@
     ],
     "doors": [
       "s",
-      "w"
+      "w",
+      "n",
+      "e"
     ]
   },
   {
@@ -257,6 +259,16 @@
     "doors": [
       "s",
       "w"
+    ]
+  },
+  {
+    "name": "Evil Garage",
+    "filename": "garage-pierce",
+    "color": [
+      "blue"
+    ],
+    "doors": [
+      "s"
     ]
   },
   {

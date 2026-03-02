@@ -82,7 +82,7 @@
 		if (!draft.strict) return true;
 		// special case
 		if (room.name === 'Entrance Hall' || room.name === 'The Antechamber' || room.name === 'Room 46') return false;
-		if ((room.name === 'Greenhouse' || room.name === 'Veranda' || room.name === 'Tunnel') && (draft.direction === 'e' || draft.direction === 'w')) return false;
+		if ((room.name === 'Greenhouse' || room.name === 'Veranda' || room.name === 'Tunnel' || room.name === 'Evil Garage') && (draft.direction === 'e' || draft.direction === 'w')) return false;
 		if (room.outer) return false;
 		// check doors
 		let realDoors = rotateDoors(room, direction);

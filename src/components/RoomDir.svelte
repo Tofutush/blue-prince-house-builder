@@ -41,6 +41,12 @@
 			else if (dir === 'n') direction = 's';
 			return;
 		}
+		if (room.name === 'Evil Garage') {
+			if (dir === 's' || dir === 'e') return;
+			else if (dir === 'w') direction = 'n';
+			else if (dir === 'n') direction = 'w';
+			return;
+		}
 		direction = order[(order.indexOf(dir) + 1) % 4];
 	}
 </script>

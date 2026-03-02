@@ -34,7 +34,7 @@
 	<details class="dir-section">
 		<summary>Rooms 13 - 24</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(12, 24) as room}
+			{#each roomList.slice(12, 25) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -42,7 +42,7 @@
 	<details class="dir-section">
 		<summary>Rooms 25 - 36</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(24, 36) as room}
+			{#each roomList.slice(25, 37) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -50,7 +50,7 @@
 	<details class="dir-section">
 		<summary>Rooms 37 - 46</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(36, 46) as room}
+			{#each roomList.slice(37, 47) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -58,7 +58,7 @@
 	<details class="dir-section">
 		<summary>Bedrooms</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(46, 54) as room}
+			{#each roomList.slice(47, 55) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -66,7 +66,7 @@
 	<details class="dir-section">
 		<summary>Hallways</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(54, 62) as room}
+			{#each roomList.slice(55, 63) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -74,7 +74,7 @@
 	<details class="dir-section">
 		<summary>Green Rooms</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(62, 70) as room}
+			{#each roomList.slice(63, 71) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -82,7 +82,7 @@
 	<details class="dir-section">
 		<summary>Shops</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(70, 78) as room}
+			{#each roomList.slice(71, 79) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -90,7 +90,7 @@
 	<details class="dir-section">
 		<summary>Red Rooms</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(78, 86) as room}
+			{#each roomList.slice(79, 87) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -98,7 +98,7 @@
 	<details class="dir-section">
 		<summary>Studio Additions</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(86, 94) as room}
+			{#each roomList.slice(87, 95) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -106,7 +106,7 @@
 	<details class="dir-section">
 		<summary>Found Floorplans</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(94, 102) as room}
+			{#each roomList.slice(95, 103) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
@@ -114,7 +114,7 @@
 	<details class="dir-section">
 		<summary>Outer Rooms</summary>
 		<div class="dir-rooms">
-			{#each roomList.slice(102, 110) as room}
+			{#each roomList.slice(103, 111) as room}
 				<RoomDir {draft} {draftDone} {draftTemporary} {getEnabled} {room} />
 			{/each}
 		</div>
