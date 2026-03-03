@@ -12,7 +12,6 @@ const specialSticks = [
 	"spareroom-secret",
 	"lockerroom",
 	"secretpassage",
-	"ballroom",
 	"rumpusroom",
 	"draftingstudio",
 	"workshop",
