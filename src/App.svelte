@@ -82,7 +82,8 @@
 		if (!draft.strict) return true;
 		// special case
 		if (room.name === 'Entrance Hall' || room.name === 'The Antechamber' || room.name === 'Room 46') return false;
-		if ((room.name === 'Greenhouse' || room.name === 'Veranda' || room.name === 'Tunnel' || room.name === 'Evil Garage') && (draft.direction === 'e' || draft.direction === 'w')) return false;
+		if ((room.name === 'Greenhouse' || room.name === 'Veranda' || room.name === 'Tunnel') && (draft.direction === 'e' || draft.direction === 'w')) return false;
+		if (room.name === 'Evil Garage' && (draft.direction === 'e' || draft.direction === 's')) return false;
 		if (room.outer) return false;
 		// check doors
 		let realDoors = rotateDoors(room, direction);
@@ -94,6 +95,8 @@
 			else if (realDoors[z] === 's') coords = [draft.coords[0] + 1, draft.coords[1]];
 			if (coords[0] < 0 || coords[0] > 8 || coords[1] < 0 || coords[1] > 4) return false;
 		}
+		console.log(room.name, realDoors);
+
 		if (!realDoors.includes(getOppositeDirection(draft.direction))) return false;
 		return true;
 	}

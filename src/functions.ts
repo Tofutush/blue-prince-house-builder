@@ -32,6 +32,7 @@ export function getRoomImg(room: RoomData, direction: Direction) {
 	if (room.name === 'Room 46') return roomImgs['room46-n.png'];
 	if (room.name === 'Tunnel') return roomImgs['tunnel-n.png'];
 	if (room.name === 'Chamber of Mirrors' && direction === 'n') return roomImgs['chamberofmirrors-4.png'];
+	if (room.name === 'Evil Garage' && (direction === 's' || direction === 'e')) return roomImgs['garage-pierce-n.png'];
 	if (room.name.startsWith('Cloister')) {
 		if (room.name === 'Cloister') return roomImgs['cloister-4.png'];
 		return roomImgs[room.filename + '.png'];
